@@ -1,0 +1,2947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>Arguments - spotdl-v4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4cae4f">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-spotdlutilsarguments" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="spotdl-v4" class="md-header__button md-logo" aria-label="spotdl-v4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            spotdl-v4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arguments
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/spotDL/spotdl-v4/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    spotdl-v4
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="spotdl-v4" class="md-nav__button md-logo" aria-label="spotdl-v4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    spotdl-v4
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/spotDL/spotdl-v4/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    spotdl-v4
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/CODE_OF_CONDUCT/" class="md-nav__link">
+        Code Of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/CONTRIBUTING/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/TROUBLESHOOTING/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Spotdl
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spotdl" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Spotdl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          Console
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Console" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Console
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/download/" class="md-nav__link">
+        Download
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/entry_point/" class="md-nav__link">
+        Entry Point
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/preload/" class="md-nav__link">
+        Preload
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/save/" class="md-nav__link">
+        Save
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/sync/" class="md-nav__link">
+        Sync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/web/" class="md-nav__link">
+        Web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_3">
+          Download
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Download" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Download
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/downloader/" class="md-nav__link">
+        Downloader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/progress_handler/" class="md-nav__link">
+        Progress Handler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4" type="checkbox" id="__nav_5_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4">
+          Providers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Providers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4_2" type="checkbox" id="__nav_5_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4_2">
+          Audio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Audio" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Audio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/youtube/" class="md-nav__link">
+        Youtube
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/ytmusic/" class="md-nav__link">
+        Ytmusic
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4_3" type="checkbox" id="__nav_5_1_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4_3">
+          Lyrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lyrics" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_1_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lyrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/azlyrics/" class="md-nav__link">
+        Azlyrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/genius/" class="md-nav__link">
+        Genius
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/musixmatch/" class="md-nav__link">
+        Musixmatch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_5" type="checkbox" id="__nav_5_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_5">
+          Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Types" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/album/" class="md-nav__link">
+        Album
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/artist/" class="md-nav__link">
+        Artist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/playlist/" class="md-nav__link">
+        Playlist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/saved/" class="md-nav__link">
+        Saved
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/song/" class="md-nav__link">
+        Song
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6" type="checkbox" id="__nav_5_1_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_6">
+          Utils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Utils" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          Utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Arguments
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Arguments
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parse_arguments" class="md-nav__link">
+    parse_arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_ffmpeg_options" class="md-nav__link">
+    parse_ffmpeg_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_main_options" class="md-nav__link">
+    parse_main_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_misc_options" class="md-nav__link">
+    parse_misc_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_other_options" class="md-nav__link">
+    parse_other_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_3" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_output_options" class="md-nav__link">
+    parse_output_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_4" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_spotify_options" class="md-nav__link">
+    parse_spotify_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_5" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        Ffmpeg
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../formatter/" class="md-nav__link">
+        Formatter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Github
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3u/" class="md-nav__link">
+        M3U
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata/" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        Providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        Search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spotify/" class="md-nav__link">
+        Spotify
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parse_arguments" class="md-nav__link">
+    parse_arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_ffmpeg_options" class="md-nav__link">
+    parse_ffmpeg_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_main_options" class="md-nav__link">
+    parse_main_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_misc_options" class="md-nav__link">
+    parse_misc_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_other_options" class="md-nav__link">
+    parse_other_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_3" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_output_options" class="md-nav__link">
+    parse_output_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_4" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_spotify_options" class="md-nav__link">
+    parse_spotify_options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_5" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/spotDL/spotdl-v4/edit/main/reference/spotdl/utils/arguments.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="module-spotdlutilsarguments">Module spotdl.utils.arguments</h1>
+<p>Module that handles the command line arguments.</p>
+<p>None</p>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">Module that handles the command line arguments.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">_ArgumentGroup</span><span class="p">,</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">Namespace</span>
+
+<span class="kn">from</span> <span class="nn">spotdl</span> <span class="kn">import</span> <span class="n">_version</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.download.progress_handler</span> <span class="kn">import</span> <span class="n">NAME_TO_LEVEL</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.utils.ffmpeg</span> <span class="kn">import</span> <span class="n">FFMPEG_FORMATS</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.utils.config</span> <span class="kn">import</span> <span class="n">DEFAULT_CONFIG</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.utils.formatter</span> <span class="kn">import</span> <span class="n">VARS</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.download.downloader</span> <span class="kn">import</span> <span class="p">(</span>
+
+    <span class="n">AUDIO_PROVIDERS</span><span class="p">,</span>
+
+    <span class="n">LYRICS_PROVIDERS</span><span class="p">,</span>
+
+<span class="p">)</span>
+
+<span class="n">OPERATIONS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;download&quot;</span><span class="p">,</span> <span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="s2">&quot;preload&quot;</span><span class="p">,</span> <span class="s2">&quot;web&quot;</span><span class="p">,</span> <span class="s2">&quot;sync&quot;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Namespace</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse arguments from the command line.</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - A Namespace object containing the parsed arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialize argument parser</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+
+        <span class="n">prog</span><span class="o">=</span><span class="s2">&quot;spotdl&quot;</span><span class="p">,</span>
+
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Download your Spotify playlists and songs along with album art and metadata&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Parse main options</span>
+
+    <span class="n">main_options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Main options&quot;</span><span class="p">)</span>
+
+    <span class="n">parse_main_options</span><span class="p">(</span><span class="n">main_options</span><span class="p">)</span>
+
+    <span class="c1"># Parse spotify options</span>
+
+    <span class="n">spotify_options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Spotify options&quot;</span><span class="p">)</span>
+
+    <span class="n">parse_spotify_options</span><span class="p">(</span><span class="n">spotify_options</span><span class="p">)</span>
+
+    <span class="c1"># Parse ffmpeg options</span>
+
+    <span class="n">ffmpeg_options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;FFmpeg options&quot;</span><span class="p">)</span>
+
+    <span class="n">parse_ffmpeg_options</span><span class="p">(</span><span class="n">ffmpeg_options</span><span class="p">)</span>
+
+    <span class="c1"># Parse output options</span>
+
+    <span class="n">output_options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Output options&quot;</span><span class="p">)</span>
+
+    <span class="n">parse_output_options</span><span class="p">(</span><span class="n">output_options</span><span class="p">)</span>
+
+    <span class="c1"># Parse misc options</span>
+
+    <span class="n">misc_options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Misc options&quot;</span><span class="p">)</span>
+
+    <span class="n">parse_misc_options</span><span class="p">(</span><span class="n">misc_options</span><span class="p">)</span>
+
+    <span class="c1"># Parse other options</span>
+
+    <span class="n">other_options</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Other options&quot;</span><span class="p">)</span>
+
+    <span class="n">parse_other_options</span><span class="p">(</span><span class="n">other_options</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">parse_main_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentGroup</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse main options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Add operation argument</span>
+
+    <span class="n">operation</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;operation&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="n">OPERATIONS</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The operation to perform.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add query argument</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+
+        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;URL for a song/playlist/album/artist/etc. to download.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">is_web</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;web&quot;</span>
+
+    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+
+        <span class="n">is_web</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">is_frozen</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="s2">&quot;frozen&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">is_frozen</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">is_web</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_web</span> <span class="ow">or</span> <span class="p">(</span><span class="n">is_frozen</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_web</span><span class="p">):</span>
+
+            <span class="n">parser</span><span class="o">.</span><span class="n">_remove_action</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span>  <span class="c1"># pylint: disable=protected-access</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">_remove_action</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>  <span class="c1"># pylint: disable=protected-access</span>
+
+    <span class="c1"># Audio provider argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--audio&quot;</span><span class="p">,</span>
+
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;audio_providers&quot;</span><span class="p">,</span>
+
+        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="n">AUDIO_PROVIDERS</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;audio_providers&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The audio provider to use. You can provide more than one for fallback.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Lyrics provider argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--lyrics&quot;</span><span class="p">,</span>
+
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;lyrics_providers&quot;</span><span class="p">,</span>
+
+        <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="n">LYRICS_PROVIDERS</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;lyrics_providers&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The lyrics provider to use. You can provide more than one for fallback.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add config argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--config&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="p">(</span>
+
+            <span class="s2">&quot;Use the config file to download songs. &quot;</span>
+
+            <span class="s2">&quot;It&#39;s located under `C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">user</span><span class="se">\\</span><span class="s2">.spotdl</span><span class="se">\\</span><span class="s2">config.json` &quot;</span>
+
+            <span class="s2">&quot;or `~/.spotdl/config.json` under linux&quot;</span>
+
+        <span class="p">),</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add search query argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--search-query&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;search_query&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;The search query to use, available variables: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">VARS</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add don&#39;t filter results argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--dont-filter-results&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span>
+
+        <span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filter_results&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;filter_results&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Disable filtering results.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_spotify_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentGroup</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse spotify options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Add login argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--user-auth&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;user_auth&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Login to Spotify using OAuth.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add client id argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--client-id&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;client_id&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The client id to use when logging in to Spotify.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add client secret argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--client-secret&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;client_secret&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The client secret to use when logging in to Spotify.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add cache path argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--cache-path&quot;</span><span class="p">,</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;cache_path&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The path where spotipy cache file will be stored.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add no cache argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--no-cache&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;no_cache&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Disable caching.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add cookie file argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--cookie-file&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;cookie_file&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to cookies file.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_ffmpeg_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentGroup</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse ffmpeg options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Add ffmpeg executable argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--ffmpeg&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;ffmpeg&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The ffmpeg executable to use.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add search threads argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--threads&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;threads&quot;</span><span class="p">],</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of threads to use when downloading songs.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add variable bitrate argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--variable-bitrate&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span> <span class="s2">&quot;6&quot;</span><span class="p">,</span> <span class="s2">&quot;7&quot;</span><span class="p">,</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span> <span class="s2">&quot;9&quot;</span><span class="p">],</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;variable_bitrate&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The variable bitrate to use for the output file.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add constant bit rate argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--constant-bitrate&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span>
+
+            <span class="s2">&quot;8k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;16k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;24k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;32k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;40k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;48k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;64k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;80k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;96k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;112k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;128k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;160k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;192k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;224k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;256k&quot;</span><span class="p">,</span>
+
+            <span class="s2">&quot;320k&quot;</span><span class="p">,</span>
+
+        <span class="p">],</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;constant_bitrate&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The constant bitrate to use for the output file.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Additional ffmpeg arguments</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--ffmpeg-args&quot;</span><span class="p">,</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;ffmpeg_args&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Additional ffmpeg arguments passed as a string.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_output_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentGroup</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse output options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Add output format argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--format&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="n">FFMPEG_FORMATS</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The format to download the song in.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add save file argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--save-file&quot;</span><span class="p">,</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;save_file&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The file to save/load the songs data from/to. It has to end with .spotdl&quot;</span><span class="p">,</span>
+
+        <span class="n">required</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="s2">&quot;preload&quot;</span><span class="p">],</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add name format argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--output&quot;</span><span class="p">,</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Specify the downloaded file name format, available variables: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">VARS</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add m3u argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--m3u&quot;</span><span class="p">,</span>
+
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;m3u&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Name of the m3u file to save the songs to.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add overwrite argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--overwrite&quot;</span><span class="p">,</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;force&quot;</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">},</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;overwrite&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Overwrite existing files.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Option to restrict filenames for easier handling in the shell</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--restrict&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;restrict&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Restrict filenames to ASCII only&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Option to print errors on exit, useful for long playlist</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--print-errors&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;print_errors&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Print errors (wrong songs, failed downloads etc) on exit, useful for long playlist&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Option to use sponsor block</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--sponsor-block&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;sponsor_block&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Use the sponsor block to download songs from yt/ytm.&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_misc_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentGroup</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse misc options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Add verbose argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--log-level&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;log_level&quot;</span><span class="p">],</span>
+
+        <span class="n">choices</span><span class="o">=</span><span class="n">NAME_TO_LEVEL</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Select log level.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add simple tui argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--simple-tui&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;simple_tui&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Use a simple tui.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Add headless argument</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--headless&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;headless&quot;</span><span class="p">],</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Run in headless mode.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_other_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">_ArgumentGroup</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse other options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--download-ffmpeg&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Download ffmpeg to spotdl directory.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--generate-config&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Generate a config file. This will overwrite current config if present.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--check-for-updates&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Check for new version.&quot;</span>
+
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--profile&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Run in profile mode. Useful for debugging.&quot;</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+
+        <span class="s2">&quot;--version&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;-v&quot;</span><span class="p">,</span>
+
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;version&quot;</span><span class="p">,</span>
+
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Show the version number and exit.&quot;</span><span class="p">,</span>
+
+        <span class="n">version</span><span class="o">=</span><span class="n">_version</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+
+    <span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="variables">Variables</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">AUDIO_PROVIDERS</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">DEFAULT_CONFIG</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">FFMPEG_FORMATS</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">LYRICS_PROVIDERS</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">NAME_TO_LEVEL</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">OPERATIONS</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="n">VARS</span>
+</code></pre></div>
+
+<h2 id="functions">Functions</h2>
+<h3 id="parse_arguments">parse_arguments</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">(</span>
+
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span>
+</code></pre></div>
+
+<p>Parse arguments from the command line.</p>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>A Namespace object containing the parsed arguments.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">parse_arguments</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Namespace</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse arguments from the command line.</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - A Namespace object containing the parsed arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Initialize argument parser</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArgumentParser</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">prog</span><span class="o">=</span><span class="s2">&quot;spotdl&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Download your Spotify playlists and songs along with album art and metadata&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse main options</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">main_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Main options&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parse_main_options</span><span class="p">(</span><span class="n">main_options</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse spotify options</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">spotify_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Spotify options&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parse_spotify_options</span><span class="p">(</span><span class="n">spotify_options</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse ffmpeg options</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ffmpeg_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;FFmpeg options&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parse_ffmpeg_options</span><span class="p">(</span><span class="n">ffmpeg_options</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse output options</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">output_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Output options&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parse_output_options</span><span class="p">(</span><span class="n">output_options</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse misc options</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">misc_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Misc options&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parse_misc_options</span><span class="p">(</span><span class="n">misc_options</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse other options</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">other_options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s2">&quot;Other options&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parse_other_options</span><span class="p">(</span><span class="n">other_options</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="parse_ffmpeg_options">parse_ffmpeg_options</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_ffmpeg_options</span><span class="p">(</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">_ArgumentGroup</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Parse ffmpeg options from the command line.</p>
+<h3 id="arguments">Arguments</h3>
+<ul>
+<li>parser: The argument parser to add the options to.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">parse_ffmpeg_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span><span class="w"> </span><span class="n">_ArgumentGroup</span><span class="p">):</span><span class="w"></span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse ffmpeg options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add ffmpeg executable argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--ffmpeg&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;ffmpeg&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The ffmpeg executable to use.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add search threads argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--threads&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;threads&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">type</span><span class="o">=</span><span class="nb nb-Type">int</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of threads to use when downloading songs.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add variable bitrate argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--variable-bitrate&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;4&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;6&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;7&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;8&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;9&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;variable_bitrate&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The variable bitrate to use for the output file.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add constant bit rate argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--constant-bitrate&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;8k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;16k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;24k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;32k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;40k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;48k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;64k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;80k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;96k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;112k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;128k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;160k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;192k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;224k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;256k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;320k&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;constant_bitrate&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The constant bitrate to use for the output file.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Additional ffmpeg arguments</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--ffmpeg-args&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;ffmpeg_args&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Additional ffmpeg arguments passed as a string.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="parse_main_options">parse_main_options</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_main_options</span><span class="p">(</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">_ArgumentGroup</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Parse main options from the command line.</p>
+<h3 id="arguments_1">Arguments</h3>
+<ul>
+<li>parser: The argument parser to add the options to.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">parse_main_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span><span class="w"> </span><span class="n">_ArgumentGroup</span><span class="p">):</span><span class="w"></span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse main options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add operation argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">operation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;operation&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="n">OPERATIONS</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The operation to perform.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add query argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;query&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;URL for a song/playlist/album/artist/etc. to download.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">try</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">is_web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;web&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">except</span><span class="w"> </span><span class="n">IndexError</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">is_web</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">is_frozen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getattr</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;frozen&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">False</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">is_frozen</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">is_web</span><span class="p">):</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">is_web</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="p">(</span><span class="n">is_frozen</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">is_web</span><span class="p">):</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">parser</span><span class="o">.</span><span class="n">_remove_action</span><span class="p">(</span><span class="n">operation</span><span class="p">)</span><span class="w">  </span><span class="c1"># pylint: disable=protected-access</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">parser</span><span class="o">.</span><span class="n">_remove_action</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="w">  </span><span class="c1"># pylint: disable=protected-access</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Audio provider argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--audio&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;audio_providers&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="n">AUDIO_PROVIDERS</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;audio_providers&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The audio provider to use. You can provide more than one for fallback.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Lyrics provider argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--lyrics&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;lyrics_providers&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="n">LYRICS_PROVIDERS</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;lyrics_providers&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The lyrics provider to use. You can provide more than one for fallback.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add config argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--config&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;Use the config file to download songs. &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;It&#39;s located under `C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">user</span><span class="se">\\</span><span class="s2">.spotdl</span><span class="se">\\</span><span class="s2">config.json` &quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="s2">&quot;or `~/.spotdl/config.json` under linux&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">),</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add search query argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--search-query&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;search_query&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;The search query to use, available variables: {&#39;, &#39;.join(VARS)}&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add don&#39;t filter results argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--dont-filter-results&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_false&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">dest</span><span class="o">=</span><span class="s2">&quot;filter_results&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;filter_results&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Disable filtering results.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="parse_misc_options">parse_misc_options</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_misc_options</span><span class="p">(</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">_ArgumentGroup</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Parse misc options from the command line.</p>
+<h3 id="arguments_2">Arguments</h3>
+<ul>
+<li>parser: The argument parser to add the options to.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code>def parse_misc_options(parser: _ArgumentGroup):
+
+    &quot;&quot;&quot;
+
+    Parse misc options from the command line.
+
+    ### Arguments
+
+    - parser: The argument parser to add the options to.
+
+    &quot;&quot;&quot;
+
+    # Add verbose argument
+
+    parser.add_argument(
+
+        &quot;--log-level&quot;,
+
+        default=DEFAULT_CONFIG[&quot;log_level&quot;],
+
+        choices=NAME_TO_LEVEL.keys(),
+
+        help=&quot;Select log level.&quot;,
+
+    )
+
+    # Add simple tui argument
+
+    parser.add_argument(
+
+        &quot;--simple-tui&quot;,
+
+        action=&quot;store_true&quot;,
+
+        default=DEFAULT_CONFIG[&quot;simple_tui&quot;],
+
+        help=&quot;Use a simple tui.&quot;,
+
+    )
+
+    # Add headless argument
+
+    parser.add_argument(
+
+        &quot;--headless&quot;,
+
+        action=&quot;store_true&quot;,
+
+        default=DEFAULT_CONFIG[&quot;headless&quot;],
+
+        help=&quot;Run in headless mode.&quot;,
+
+    )
+</code></pre></div>
+
+</details>
+<h3 id="parse_other_options">parse_other_options</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_other_options</span><span class="p">(</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">_ArgumentGroup</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Parse other options from the command line.</p>
+<h3 id="arguments_3">Arguments</h3>
+<ul>
+<li>parser: The argument parser to add the options to.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">parse_other_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span><span class="w"> </span><span class="n">_ArgumentGroup</span><span class="p">):</span><span class="w"></span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse other options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--download-ffmpeg&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Download ffmpeg to spotdl directory.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--generate-config&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Generate a config file. This will overwrite current config if present.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--check-for-updates&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Check for new version.&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--profile&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Run in profile mode. Useful for debugging.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--version&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;-v&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;version&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Show the version number and exit.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">version</span><span class="o">=</span><span class="n">_version</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="parse_output_options">parse_output_options</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_output_options</span><span class="p">(</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">_ArgumentGroup</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Parse output options from the command line.</p>
+<h3 id="arguments_4">Arguments</h3>
+<ul>
+<li>parser: The argument parser to add the options to.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">parse_output_options</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span><span class="w"> </span><span class="n">_ArgumentGroup</span><span class="p">):</span><span class="w"></span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parse output options from the command line.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - parser: The argument parser to add the options to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add output format argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--format&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="n">FFMPEG_FORMATS</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The format to download the song in.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add save file argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--save-file&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;save_file&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;The file to save/load the songs data from/to. It has to end with .spotdl&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">required</span><span class="o">=</span><span class="n">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;preload&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add name format argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--output&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;Specify the downloaded file name format, available variables: {&#39;, &#39;.join(VARS)}&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add m3u argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--m3u&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;m3u&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Name of the m3u file to save the songs to.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Add overwrite argument</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--overwrite&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">choices</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;force&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;skip&quot;</span><span class="p">},</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;overwrite&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Overwrite existing files.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Option to restrict filenames for easier handling in the shell</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--restrict&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;restrict&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Restrict filenames to ASCII only&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Option to print errors on exit, useful for long playlist</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--print-errors&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;print_errors&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Print errors (wrong songs, failed downloads etc) on exit, useful for long playlist&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Option to use sponsor block</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="s2">&quot;--sponsor-block&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_CONFIG</span><span class="p">[</span><span class="s2">&quot;sponsor_block&quot;</span><span class="p">],</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">help</span><span class="o">=</span><span class="s2">&quot;Use the sponsor block to download songs from yt/ytm.&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="parse_spotify_options">parse_spotify_options</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_spotify_options</span><span class="p">(</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">_ArgumentGroup</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Parse spotify options from the command line.</p>
+<h3 id="arguments_5">Arguments</h3>
+<ul>
+<li>parser: The argument parser to add the options to.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code>def parse_spotify_options(parser: _ArgumentGroup):
+
+    &quot;&quot;&quot;
+
+    Parse spotify options from the command line.
+
+    ### Arguments
+
+    - parser: The argument parser to add the options to.
+
+    &quot;&quot;&quot;
+
+    # Add login argument
+
+    parser.add_argument(
+
+        &quot;--user-auth&quot;,
+
+        action=&quot;store_true&quot;,
+
+        default=DEFAULT_CONFIG[&quot;user_auth&quot;],
+
+        help=&quot;Login to Spotify using OAuth.&quot;,
+
+    )
+
+    # Add client id argument
+
+    parser.add_argument(
+
+        &quot;--client-id&quot;,
+
+        default=DEFAULT_CONFIG[&quot;client_id&quot;],
+
+        help=&quot;The client id to use when logging in to Spotify.&quot;,
+
+    )
+
+    # Add client secret argument
+
+    parser.add_argument(
+
+        &quot;--client-secret&quot;,
+
+        default=DEFAULT_CONFIG[&quot;client_secret&quot;],
+
+        help=&quot;The client secret to use when logging in to Spotify.&quot;,
+
+    )
+
+    # Add cache path argument
+
+    parser.add_argument(
+
+        &quot;--cache-path&quot;,
+
+        type=str,
+
+        default=DEFAULT_CONFIG[&quot;cache_path&quot;],
+
+        help=&quot;The path where spotipy cache file will be stored.&quot;,
+
+    )
+
+    # Add no cache argument
+
+    parser.add_argument(
+
+        &quot;--no-cache&quot;,
+
+        action=&quot;store_true&quot;,
+
+        default=DEFAULT_CONFIG[&quot;no_cache&quot;],
+
+        help=&quot;Disable caching.&quot;,
+
+    )
+
+    # Add cookie file argument
+
+    parser.add_argument(
+
+        &quot;--cookie-file&quot;,
+
+        default=DEFAULT_CONFIG[&quot;cookie_file&quot;],
+
+        help=&quot;Path to cookies file.&quot;,
+
+    )
+</code></pre></div>
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../types/song/" title="Song" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Song
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../config/" title="Config" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Config
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>

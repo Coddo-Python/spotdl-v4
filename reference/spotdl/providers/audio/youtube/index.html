@@ -1,0 +1,2442 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>Youtube - spotdl-v4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4cae4f">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <script>function __prefix(e){return new URL("../../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-spotdlprovidersaudioyoutube" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="spotdl-v4" class="md-header__button md-logo" aria-label="spotdl-v4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            spotdl-v4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Youtube
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/spotDL/spotdl-v4/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    spotdl-v4
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="spotdl-v4" class="md-nav__button md-logo" aria-label="spotdl-v4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    spotdl-v4
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/spotDL/spotdl-v4/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    spotdl-v4
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../docs/CODE_OF_CONDUCT/" class="md-nav__link">
+        Code Of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../docs/CONTRIBUTING/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../docs/TROUBLESHOOTING/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Spotdl
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spotdl" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Spotdl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          Console
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Console" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Console
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/download/" class="md-nav__link">
+        Download
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/entry_point/" class="md-nav__link">
+        Entry Point
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/preload/" class="md-nav__link">
+        Preload
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/save/" class="md-nav__link">
+        Save
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/sync/" class="md-nav__link">
+        Sync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../console/web/" class="md-nav__link">
+        Web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_3">
+          Download
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Download" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Download
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../download/downloader/" class="md-nav__link">
+        Downloader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../download/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../download/progress_handler/" class="md-nav__link">
+        Progress Handler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4" type="checkbox" id="__nav_5_1_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4">
+          Providers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Providers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4_2" type="checkbox" id="__nav_5_1_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4_2">
+          Audio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Audio" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Audio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Youtube
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Youtube
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#youtube" class="md-nav__link">
+    YouTube
+  </a>
+  
+    <nav class="md-nav" aria-label="YouTube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_results" class="md-nav__link">
+    get_results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_download_metadata" class="md-nav__link">
+    get_download_metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#order_results" class="md-nav__link">
+    order_results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_3" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ytmusic/" class="md-nav__link">
+        Ytmusic
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4_3" type="checkbox" id="__nav_5_1_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4_3">
+          Lyrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lyrics" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_1_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lyrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lyrics/azlyrics/" class="md-nav__link">
+        Azlyrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lyrics/base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lyrics/genius/" class="md-nav__link">
+        Genius
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lyrics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lyrics/musixmatch/" class="md-nav__link">
+        Musixmatch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_5" type="checkbox" id="__nav_5_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_5">
+          Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Types" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../types/album/" class="md-nav__link">
+        Album
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../types/artist/" class="md-nav__link">
+        Artist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../types/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../types/playlist/" class="md-nav__link">
+        Playlist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../types/saved/" class="md-nav__link">
+        Saved
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../types/song/" class="md-nav__link">
+        Song
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6" type="checkbox" id="__nav_5_1_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_6">
+          Utils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Utils" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          Utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/arguments/" class="md-nav__link">
+        Arguments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/ffmpeg/" class="md-nav__link">
+        Ffmpeg
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/formatter/" class="md-nav__link">
+        Formatter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/github/" class="md-nav__link">
+        Github
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/m3u/" class="md-nav__link">
+        M3U
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/metadata/" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/providers/" class="md-nav__link">
+        Providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/search/" class="md-nav__link">
+        Search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../utils/spotify/" class="md-nav__link">
+        Spotify
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#youtube" class="md-nav__link">
+    YouTube
+  </a>
+  
+    <nav class="md-nav" aria-label="YouTube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-methods" class="md-nav__link">
+    Static methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_results" class="md-nav__link">
+    get_results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instance-variables" class="md-nav__link">
+    Instance variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_download_metadata" class="md-nav__link">
+    get_download_metadata
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#order_results" class="md-nav__link">
+    order_results
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+    <nav class="md-nav" aria-label="Returns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    search
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_3" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/spotDL/spotdl-v4/edit/main/reference/spotdl/providers/audio/youtube.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="module-spotdlprovidersaudioyoutube">Module spotdl.providers.audio.youtube</h1>
+<p>Youtube module for downloading and searching songs.</p>
+<p>None</p>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">Youtube module for downloading and searching songs.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">pytube</span> <span class="kn">import</span> <span class="n">YouTube</span> <span class="k">as</span> <span class="n">PyTube</span><span class="p">,</span> <span class="n">Search</span>
+
+<span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.utils.formatter</span> <span class="kn">import</span> <span class="n">create_song_title</span><span class="p">,</span> <span class="n">create_search_query</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.utils.providers</span> <span class="kn">import</span> <span class="n">match_percentage</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.providers.audio.base</span> <span class="kn">import</span> <span class="n">AudioProvider</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.types</span> <span class="kn">import</span> <span class="n">Song</span>
+
+<span class="k">class</span> <span class="nc">YouTube</span><span class="p">(</span><span class="n">AudioProvider</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    YouTube audio provider class</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">song</span><span class="p">:</span> <span class="n">Song</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Search for a video on YouTube.</span>
+
+<span class="sd">        ### Arguments</span>
+
+<span class="sd">        - song: The song to search for.</span>
+
+<span class="sd">        ### Returns</span>
+
+<span class="sd">        - The url of the best match or None if no match was found.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_query</span><span class="p">:</span>
+
+            <span class="n">search_query</span> <span class="o">=</span> <span class="n">create_search_query</span><span class="p">(</span>
+
+                <span class="n">song</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_query</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span>
+
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># if isrc is not None then we try to find song with it</span>
+
+            <span class="k">if</span> <span class="n">song</span><span class="o">.</span><span class="n">isrc</span><span class="p">:</span>
+
+                <span class="n">isrc_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">isrc</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">isrc_results</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">isrc_results</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+
+                    <span class="n">isrc_result</span> <span class="o">=</span> <span class="n">isrc_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="n">isrc_result</span> <span class="ow">and</span> <span class="n">isrc_result</span><span class="o">.</span><span class="n">watch_url</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+                        <span class="k">return</span> <span class="n">isrc_result</span><span class="o">.</span><span class="n">watch_url</span>
+
+            <span class="n">search_query</span> <span class="o">=</span> <span class="n">create_song_title</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="c1"># Query YTM by songs only first, this way if we get correct result on the first try</span>
+
+        <span class="c1"># we don&#39;t have to make another request to ytmusic api that could result in us</span>
+
+        <span class="c1"># getting rate limited sooner</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">search_query</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">results</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_results</span><span class="p">:</span>
+
+            <span class="n">ordered_results</span> <span class="o">=</span> <span class="p">{</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">watch_url</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># Order results</span>
+
+            <span class="n">ordered_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order_results</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">song</span><span class="p">)</span>
+
+        <span class="c1"># No matches found</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ordered_results</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">result_items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ordered_results</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+        <span class="c1"># Sort results by highest score</span>
+
+        <span class="n">sorted_results</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">result_items</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Return the first result</span>
+
+        <span class="k">return</span> <span class="n">sorted_results</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+
+    <span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span>
+
+        <span class="n">search_term</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">_kwargs</span>
+
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">PyTube</span><span class="p">]]:</span>  <span class="c1"># pylint: disable=W0221</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Get results from YouTube</span>
+
+<span class="sd">        ### Arguments</span>
+
+<span class="sd">        - search_term: The search term to search for.</span>
+
+<span class="sd">        - args: Unused.</span>
+
+<span class="sd">        - kwargs: Unused.</span>
+
+<span class="sd">        ### Returns</span>
+
+<span class="sd">        - A list of YouTube results if found, None otherwise.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">Search</span><span class="p">(</span><span class="n">search_term</span><span class="p">)</span><span class="o">.</span><span class="n">results</span>
+
+    <span class="k">def</span> <span class="nf">order_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">PyTube</span><span class="p">],</span> <span class="n">song</span><span class="p">:</span> <span class="n">Song</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Filter results based on the song&#39;s metadata.</span>
+
+<span class="sd">        ### Arguments</span>
+
+<span class="sd">        - results: The results to order.</span>
+
+<span class="sd">        - song: The song to order for.</span>
+
+<span class="sd">        ### Returns</span>
+
+<span class="sd">        - The ordered results.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Assign an overall avg match value to each result</span>
+
+        <span class="n">links_with_match_value</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Slugify song title</span>
+
+        <span class="n">slug_song_name</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="n">slug_song_title</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span>
+
+            <span class="n">create_song_title</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_query</span>
+
+            <span class="k">else</span> <span class="n">create_search_query</span><span class="p">(</span><span class="n">song</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">search_query</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+
+            <span class="c1"># Skip results without id</span>
+
+            <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">video_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+                <span class="k">continue</span>
+
+            <span class="c1"># Slugify some variables</span>
+
+            <span class="n">slug_result_name</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+            <span class="n">sentence_words</span> <span class="o">=</span> <span class="n">slug_song_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+            <span class="c1"># Check for common words in result name</span>
+
+            <span class="n">common_word</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
+
+                <span class="n">word</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">slug_result_name</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence_words</span>
+
+            <span class="p">)</span>
+
+            <span class="c1"># skip results that have no common words in their name</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">common_word</span><span class="p">:</span>
+
+                <span class="k">continue</span>
+
+            <span class="c1"># Find artist match</span>
+
+            <span class="n">artist_match_number</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="c1"># Calculate artist match for each artist</span>
+
+            <span class="c1"># in the song&#39;s artist list</span>
+
+            <span class="k">for</span> <span class="n">artist</span> <span class="ow">in</span> <span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">:</span>
+
+                <span class="n">artist_match_number</span> <span class="o">+=</span> <span class="n">match_percentage</span><span class="p">(</span>
+
+                    <span class="n">slugify</span><span class="p">(</span><span class="n">artist</span><span class="p">),</span> <span class="n">slug_result_name</span>
+
+                <span class="p">)</span>
+
+            <span class="c1"># skip results with artist match lower than 70%</span>
+
+            <span class="n">artist_match</span> <span class="o">=</span> <span class="n">artist_match_number</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">artist_match</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">:</span>
+
+                <span class="k">continue</span>
+
+            <span class="c1"># Calculate name match</span>
+
+            <span class="n">name_match</span> <span class="o">=</span> <span class="n">match_percentage</span><span class="p">(</span><span class="n">slug_result_name</span><span class="p">,</span> <span class="n">slug_song_title</span><span class="p">)</span>
+
+            <span class="c1"># Drop results with name match lower than 50%</span>
+
+            <span class="k">if</span> <span class="n">name_match</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+
+                <span class="k">continue</span>
+
+            <span class="c1"># Calculate time match</span>
+
+            <span class="n">time_match</span> <span class="o">=</span> <span class="p">(</span>
+
+                <span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">length</span> <span class="o">-</span> <span class="n">song</span><span class="o">.</span><span class="n">duration</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">song</span><span class="o">.</span><span class="n">duration</span> <span class="o">*</span> <span class="mi">100</span>
+
+            <span class="p">)</span>
+
+            <span class="n">average_match</span> <span class="o">=</span> <span class="p">(</span><span class="n">artist_match</span> <span class="o">+</span> <span class="n">name_match</span> <span class="o">+</span> <span class="n">time_match</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+
+            <span class="c1"># the results along with the avg Match</span>
+
+            <span class="n">links_with_match_value</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">watch_url</span><span class="p">]</span> <span class="o">=</span> <span class="n">average_match</span>
+
+        <span class="k">return</span> <span class="n">links_with_match_value</span>
+</code></pre></div>
+
+</details>
+<h2 id="classes">Classes</h2>
+<h3 id="youtube">YouTube</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">YouTube</span><span class="p">(</span>
+    <span class="n">output_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;mp3&#39;</span><span class="p">,</span>
+    <span class="n">cookie_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">search_query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{artists}</span><span class="s1"> - </span><span class="si">{title}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">filter_results</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">YouTube</span><span class="p">(</span><span class="n">AudioProvider</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    YouTube audio provider class</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="k">search</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">song</span><span class="p">:</span><span class="w"> </span><span class="n">Song</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Search for a video on YouTube.</span>
+
+<span class="ss">        ### Arguments</span>
+
+<span class="ss">        - song: The song to search for.</span>
+
+<span class="ss">        ### Returns</span>
+
+<span class="ss">        - The url of the best match or None if no match was found.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">search_query</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">search_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_search_query</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">song</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">search_query</span><span class="p">,</span><span class="w"> </span><span class="k">False</span><span class="p">,</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">isrc</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">None</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">song</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">it</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="nl">isrc</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">isrc_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">isrc</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">isrc_results</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">isrc_results</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">isrc_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isrc_results</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="n">isrc_result</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">isrc_result</span><span class="p">.</span><span class="n">watch_url</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="n">isrc_result</span><span class="p">.</span><span class="n">watch_url</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">search_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_song_title</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="p">).</span><span class="nf">lower</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Query</span><span class="w"> </span><span class="n">YTM</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">songs</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="k">first</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="k">result</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">first</span><span class="w"> </span><span class="k">try</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;t have to make another request to ytmusic api that could result in us</span>
+
+<span class="s1">        # getting rate limited sooner</span>
+
+<span class="s1">        results = self.get_results(search_query)</span>
+
+<span class="s1">        if results is None:</span>
+
+<span class="s1">            return None</span>
+
+<span class="s1">        if self.filter_results:</span>
+
+<span class="s1">            ordered_results = {results[0].watch_url: 100}</span>
+
+<span class="s1">        else:</span>
+
+<span class="s1">            # Order results</span>
+
+<span class="s1">            ordered_results = self.order_results(results, song)</span>
+
+<span class="s1">        # No matches found</span>
+
+<span class="s1">        if len(ordered_results) == 0:</span>
+
+<span class="s1">            return None</span>
+
+<span class="s1">        result_items = list(ordered_results.items())</span>
+
+<span class="s1">        # Sort results by highest score</span>
+
+<span class="s1">        sorted_results = sorted(result_items, key=lambda x: x[1], reverse=True)</span>
+
+<span class="s1">        # Return the first result</span>
+
+<span class="s1">        return sorted_results[0][0]</span>
+
+<span class="s1">    @staticmethod</span>
+
+<span class="s1">    def get_results(</span>
+
+<span class="s1">        search_term: str, *_args, **_kwargs</span>
+
+<span class="s1">    ) -&gt; Optional[List[PyTube]]:  # pylint: disable=W0221</span>
+
+<span class="s1">        &quot;&quot;&quot;</span>
+
+<span class="s1">        Get results from YouTube</span>
+
+<span class="s1">        ### Arguments</span>
+
+<span class="s1">        - search_term: The search term to search for.</span>
+
+<span class="s1">        - args: Unused.</span>
+
+<span class="s1">        - kwargs: Unused.</span>
+
+<span class="s1">        ### Returns</span>
+
+<span class="s1">        - A list of YouTube results if found, None otherwise.</span>
+
+<span class="s1">        &quot;&quot;&quot;</span>
+
+<span class="s1">        return Search(search_term).results</span>
+
+<span class="s1">    def order_results(self, results: List[PyTube], song: Song) -&gt; Dict[str, Any]:</span>
+
+<span class="s1">        &quot;&quot;&quot;</span>
+
+<span class="s1">        Filter results based on the song&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">metadata</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">###</span><span class="w"> </span><span class="n">Arguments</span><span class="w"></span>
+
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nl">results</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">order</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nl">song</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">song</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">for</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">###</span><span class="w"> </span><span class="k">Returns</span><span class="w"></span>
+
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">ordered</span><span class="w"> </span><span class="n">results</span><span class="p">.</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        # Assign an overall avg match value to each result</span>
+
+<span class="ss">        links_with_match_value = {}</span>
+
+<span class="ss">        # Slugify song title</span>
+
+<span class="ss">        slug_song_name = slugify(song.name)</span>
+
+<span class="ss">        slug_song_title = slugify(</span>
+
+<span class="ss">            create_song_title(song.name, song.artists)</span>
+
+<span class="ss">            if not self.search_query</span>
+
+<span class="ss">            else create_search_query(song, self.search_query, False, None, True)</span>
+
+<span class="ss">        )</span>
+
+<span class="ss">        for result in results:</span>
+
+<span class="ss">            # Skip results without id</span>
+
+<span class="ss">            if result.video_id is None:</span>
+
+<span class="ss">                continue</span>
+
+<span class="ss">            # Slugify some variables</span>
+
+<span class="ss">            slug_result_name = slugify(result.title)</span>
+
+<span class="ss">            sentence_words = slug_song_name.replace(&quot;</span><span class="o">-</span><span class="ss">&quot;, &quot;</span><span class="w"> </span><span class="ss">&quot;).split(&quot;</span><span class="w"> </span><span class="ss">&quot;)</span>
+
+<span class="ss">            # Check for common words in result name</span>
+
+<span class="ss">            common_word = any(</span>
+
+<span class="ss">                word != &quot;</span><span class="err">&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">slug_result_name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">sentence_words</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nl">common_word</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Find</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="k">match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">artist_match_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Calculate</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="n">artist</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">song</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="n">list</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="nl">artists</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">artist_match_number</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">match_percentage</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">slugify</span><span class="p">(</span><span class="n">artist</span><span class="p">),</span><span class="w"> </span><span class="n">slug_result_name</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="nf">lower</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="mi">70</span><span class="o">%</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">artist_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">artist_match_number</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">artist_match</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Calculate</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">name_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">match_percentage</span><span class="p">(</span><span class="n">slug_result_name</span><span class="p">,</span><span class="w"> </span><span class="n">slug_song_title</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="k">Drop</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="nf">lower</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="mi">50</span><span class="o">%</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">name_match</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Calculate</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">time_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="k">result</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">duration</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">duration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">average_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">artist_match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name_match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">time_match</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nf">avg</span><span class="w"> </span><span class="k">Match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">links_with_match_value</span><span class="o">[</span><span class="n">result.watch_url</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">average_match</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">links_with_match_value</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<hr />
+<h4 id="ancestors-in-mro">Ancestors (in MRO)</h4>
+<ul>
+<li>spotdl.providers.audio.base.AudioProvider</li>
+</ul>
+<h4 id="static-methods">Static methods</h4>
+<h4 id="get_results">get_results</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_results</span><span class="p">(</span>
+    <span class="n">search_term</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">_args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">_kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">pytube</span><span class="o">.</span><span class="n">__main__</span><span class="o">.</span><span class="n">YouTube</span><span class="p">]]</span>
+</code></pre></div>
+
+<p>Get results from YouTube</p>
+<h3 id="arguments">Arguments</h3>
+<ul>
+<li>search_term: The search term to search for.</li>
+<li>args: Unused.</li>
+<li>kwargs: Unused.</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>A list of YouTube results if found, None otherwise.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="nv">@staticmethod</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">get_results</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="nl">search_term</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">_args</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">_kwargs</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">List[PyTube</span><span class="o">]</span><span class="err">]:</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nl">pylint</span><span class="p">:</span><span class="w"> </span><span class="n">disable</span><span class="o">=</span><span class="n">W0221</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Get results from YouTube</span>
+
+<span class="ss">        ### Arguments</span>
+
+<span class="ss">        - search_term: The search term to search for.</span>
+
+<span class="ss">        - args: Unused.</span>
+
+<span class="ss">        - kwargs: Unused.</span>
+
+<span class="ss">        ### Returns</span>
+
+<span class="ss">        - A list of YouTube results if found, None otherwise.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">Search</span><span class="p">(</span><span class="n">search_term</span><span class="p">).</span><span class="n">results</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="instance-variables">Instance variables</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">name</span>
+</code></pre></div>
+
+<p>Get the name of the provider.</p>
+<h3 id="returns_1">Returns</h3>
+<ul>
+<li>The name of the provider.</li>
+</ul>
+<h4 id="methods">Methods</h4>
+<h4 id="get_download_metadata">get_download_metadata</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_download_metadata</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
+</code></pre></div>
+
+<p>Get metadata for a download using yt-dlp.</p>
+<h3 id="arguments_1">Arguments</h3>
+<ul>
+<li>url: The url to get metadata for.</li>
+</ul>
+<h3 id="returns_2">Returns</h3>
+<ul>
+<li>A dictionary containing the metadata.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">get_download_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">url</span><span class="p">:</span><span class="w"> </span><span class="nb">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Dict</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Get metadata for a download using yt-dlp.</span>
+
+<span class="sd">        ### Arguments</span>
+
+<span class="sd">        - url: The url to get metadata for.</span>
+
+<span class="sd">        ### Returns</span>
+
+<span class="sd">        - A dictionary containing the metadata.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">audio_handler</span><span class="o">.</span><span class="n">extract_info</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="w"> </span><span class="n">download</span><span class="o">=</span><span class="n">False</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">data</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">data</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">raise</span><span class="w"> </span><span class="n">AudioProviderError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;No metadata found for the provided url {url}&quot;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="order_results">order_results</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">order_results</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">pytube</span><span class="o">.</span><span class="n">__main__</span><span class="o">.</span><span class="n">YouTube</span><span class="p">],</span>
+    <span class="n">song</span><span class="p">:</span> <span class="n">spotdl</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">song</span><span class="o">.</span><span class="n">Song</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+
+<p>Filter results based on the song's metadata.</p>
+<h3 id="arguments_2">Arguments</h3>
+<ul>
+<li>results: The results to order.</li>
+<li>song: The song to order for.</li>
+</ul>
+<h3 id="returns_3">Returns</h3>
+<ul>
+<li>The ordered results.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">order_results</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">results</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">PyTube</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="nl">song</span><span class="p">:</span><span class="w"> </span><span class="n">Song</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Dict</span><span class="o">[</span><span class="n">str, Any</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Filter results based on the song&#39;s metadata.</span>
+
+<span class="ss">        ### Arguments</span>
+
+<span class="ss">        - results: The results to order.</span>
+
+<span class="ss">        - song: The song to order for.</span>
+
+<span class="ss">        ### Returns</span>
+
+<span class="ss">        - The ordered results.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Assign</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">overall</span><span class="w"> </span><span class="nf">avg</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="k">result</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">links_with_match_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Slugify</span><span class="w"> </span><span class="n">song</span><span class="w"> </span><span class="n">title</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">slug_song_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slugify</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">slug_song_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slugify</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">create_song_title</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">search_query</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">create_search_query</span><span class="p">(</span><span class="n">song</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">search_query</span><span class="p">,</span><span class="w"> </span><span class="k">False</span><span class="p">,</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"> </span><span class="k">True</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">results</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Skip</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">without</span><span class="w"> </span><span class="n">id</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">result</span><span class="p">.</span><span class="n">video_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Slugify</span><span class="w"> </span><span class="ow">some</span><span class="w"> </span><span class="n">variables</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">slug_result_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slugify</span><span class="p">(</span><span class="k">result</span><span class="p">.</span><span class="n">title</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">sentence_words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slug_song_name</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="ss">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot; &quot;</span><span class="p">).</span><span class="n">split</span><span class="p">(</span><span class="ss">&quot; &quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="k">Check</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">result</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">common_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">any</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">word</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="ss">&quot;&quot;</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">slug_result_name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">sentence_words</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">common</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">their</span><span class="w"> </span><span class="n">name</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="nl">common_word</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Find</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="k">match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">artist_match_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Calculate</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="n">artist</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">song</span><span class="err">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="n">list</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="nl">artists</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">artist_match_number</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">match_percentage</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">slugify</span><span class="p">(</span><span class="n">artist</span><span class="p">),</span><span class="w"> </span><span class="n">slug_result_name</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">artist</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="nf">lower</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="mi">70</span><span class="o">%</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">artist_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">artist_match_number</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">artist_match</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">70</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Calculate</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">name_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">match_percentage</span><span class="p">(</span><span class="n">slug_result_name</span><span class="p">,</span><span class="w"> </span><span class="n">slug_song_title</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="k">Drop</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="nf">lower</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="mi">50</span><span class="o">%</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">name_match</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">Calculate</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="k">match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">time_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="k">result</span><span class="p">.</span><span class="n">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">duration</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">duration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">average_match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">artist_match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name_match</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">time_match</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nf">avg</span><span class="w"> </span><span class="k">Match</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">links_with_match_value</span><span class="o">[</span><span class="n">result.watch_url</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">average_match</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">links_with_match_value</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h4 id="search">search</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">search</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">song</span><span class="p">:</span> <span class="n">spotdl</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">song</span><span class="o">.</span><span class="n">Song</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+<p>Search for a video on YouTube.</p>
+<h3 id="arguments_3">Arguments</h3>
+<ul>
+<li>song: The song to search for.</li>
+</ul>
+<h3 id="returns_4">Returns</h3>
+<ul>
+<li>The url of the best match or None if no match was found.</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="k">search</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">song</span><span class="p">:</span><span class="w"> </span><span class="n">Song</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">        Search for a video on YouTube.</span>
+
+<span class="ss">        ### Arguments</span>
+
+<span class="ss">        - song: The song to search for.</span>
+
+<span class="ss">        ### Returns</span>
+
+<span class="ss">        - The url of the best match or None if no match was found.</span>
+
+<span class="ss">        &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">search_query</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">search_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_search_query</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">song</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">search_query</span><span class="p">,</span><span class="w"> </span><span class="k">False</span><span class="p">,</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"> </span><span class="k">True</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">isrc</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">None</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">song</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">it</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="nl">isrc</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">isrc_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">isrc</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="n">isrc_results</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">isrc_results</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">isrc_result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">isrc_results</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="n">isrc_result</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">isrc_result</span><span class="p">.</span><span class="n">watch_url</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="n">isrc_result</span><span class="p">.</span><span class="n">watch_url</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">search_query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_song_title</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="p">).</span><span class="nf">lower</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Query</span><span class="w"> </span><span class="n">YTM</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">songs</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="k">first</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="k">get</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="k">result</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">first</span><span class="w"> </span><span class="k">try</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">don</span><span class="err">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">another</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">ytmusic</span><span class="w"> </span><span class="n">api</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="k">result</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">us</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">getting</span><span class="w"> </span><span class="n">rate</span><span class="w"> </span><span class="n">limited</span><span class="w"> </span><span class="n">sooner</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">get_results</span><span class="p">(</span><span class="n">search_query</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">filter_results</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">ordered_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="n">results</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">.</span><span class="nl">watch_url</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">#</span><span class="w"> </span><span class="k">Order</span><span class="w"> </span><span class="n">results</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">ordered_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">order_results</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="n">song</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">No</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="k">found</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">ordered_results</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">result_items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="n">ordered_results</span><span class="p">.</span><span class="n">items</span><span class="p">())</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Sort</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">highest</span><span class="w"> </span><span class="n">score</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">sorted_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sorted</span><span class="p">(</span><span class="n">result_items</span><span class="p">,</span><span class="w"> </span><span class="k">key</span><span class="o">=</span><span class="n">lambda</span><span class="w"> </span><span class="nl">x</span><span class="p">:</span><span class="w"> </span><span class="n">x</span><span class="o">[</span><span class="n">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="nf">reverse</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">Return</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">first</span><span class="w"> </span><span class="k">result</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sorted_results</span><span class="o">[</span><span class="n">0</span><span class="o">][</span><span class="n">0</span><span class="o">]</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="Index" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Index
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ytmusic/" title="Ytmusic" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Ytmusic
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>

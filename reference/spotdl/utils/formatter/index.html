@@ -1,0 +1,3018 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.4, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>Formatter - spotdl-v4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4cae4f">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-spotdlutilsformatter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="spotdl-v4" class="md-header__button md-logo" aria-label="spotdl-v4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            spotdl-v4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Formatter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/spotDL/spotdl-v4/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    spotdl-v4
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="spotdl-v4" class="md-nav__button md-logo" aria-label="spotdl-v4" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    spotdl-v4
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/spotDL/spotdl-v4/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    spotdl-v4
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/CODE_OF_CONDUCT/" class="md-nav__link">
+        Code Of Conduct
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/CONTRIBUTING/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/TROUBLESHOOTING/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Spotdl
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Spotdl" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Spotdl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_2" type="checkbox" id="__nav_5_1_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_2">
+          Console
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Console" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Console
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/download/" class="md-nav__link">
+        Download
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/entry_point/" class="md-nav__link">
+        Entry Point
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/preload/" class="md-nav__link">
+        Preload
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/save/" class="md-nav__link">
+        Save
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/sync/" class="md-nav__link">
+        Sync
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../console/web/" class="md-nav__link">
+        Web
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_3">
+          Download
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Download" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Download
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/downloader/" class="md-nav__link">
+        Downloader
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../download/progress_handler/" class="md-nav__link">
+        Progress Handler
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4" type="checkbox" id="__nav_5_1_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4">
+          Providers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Providers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4_2" type="checkbox" id="__nav_5_1_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4_2">
+          Audio
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Audio" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Audio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/youtube/" class="md-nav__link">
+        Youtube
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/audio/ytmusic/" class="md-nav__link">
+        Ytmusic
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4_3" type="checkbox" id="__nav_5_1_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_4_3">
+          Lyrics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Lyrics" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_1_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Lyrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/azlyrics/" class="md-nav__link">
+        Azlyrics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/base/" class="md-nav__link">
+        Base
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/genius/" class="md-nav__link">
+        Genius
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/lyrics/musixmatch/" class="md-nav__link">
+        Musixmatch
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_5" type="checkbox" id="__nav_5_1_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_5">
+          Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Types" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/album/" class="md-nav__link">
+        Album
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/artist/" class="md-nav__link">
+        Artist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/playlist/" class="md-nav__link">
+        Playlist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/saved/" class="md-nav__link">
+        Saved
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/song/" class="md-nav__link">
+        Song
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_6" type="checkbox" id="__nav_5_1_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1_6">
+          Utils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Utils" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          Utils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arguments/" class="md-nav__link">
+        Arguments
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../config/" class="md-nav__link">
+        Config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ffmpeg/" class="md-nav__link">
+        Ffmpeg
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Formatter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Formatter
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create_file_name" class="md-nav__link">
+    create_file_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_search_query" class="md-nav__link">
+    create_search_query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_song_title" class="md-nav__link">
+    create_song_title
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format_query" class="md-nav__link">
+    format_query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_3" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_duration" class="md-nav__link">
+    parse_duration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_4" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict_filename" class="md-nav__link">
+    restrict_filename
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_5" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_1" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanitize_string" class="md-nav__link">
+    sanitize_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_6" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_ms" class="md-nav__link">
+    to_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_7" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_2" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../github/" class="md-nav__link">
+        Github
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../m3u/" class="md-nav__link">
+        M3U
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata/" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/" class="md-nav__link">
+        Providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search/" class="md-nav__link">
+        Search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../spotify/" class="md-nav__link">
+        Spotify
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create_file_name" class="md-nav__link">
+    create_file_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_search_query" class="md-nav__link">
+    create_search_query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_1" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_1" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_song_title" class="md-nav__link">
+    create_song_title
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_2" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_2" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format_query" class="md-nav__link">
+    format_query
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_3" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_3" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parse_duration" class="md-nav__link">
+    parse_duration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_4" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_4" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict_filename" class="md-nav__link">
+    restrict_filename
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_5" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_5" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_1" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sanitize_string" class="md-nav__link">
+    sanitize_string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_6" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_6" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to_ms" class="md-nav__link">
+    to_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arguments_7" class="md-nav__link">
+    Arguments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_7" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes_2" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/spotDL/spotdl-v4/edit/main/reference/spotdl/utils/formatter.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="module-spotdlutilsformatter">Module spotdl.utils.formatter</h1>
+<p>Module for formatting songs into strings.</p>
+<p>Contains functions to create search queries and song titles
+and file names.</p>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">Module for formatting songs into strings.</span>
+
+<span class="sd">Contains functions to create search queries and song titles</span>
+
+<span class="sd">and file names.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">yt_dlp.utils</span> <span class="kn">import</span> <span class="n">sanitize_filename</span>
+
+<span class="kn">from</span> <span class="nn">spotdl.types</span> <span class="kn">import</span> <span class="n">Song</span>
+
+<span class="n">VARS</span> <span class="o">=</span> <span class="p">[</span>
+
+    <span class="s2">&quot;</span><span class="si">{title}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{artists}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{artist}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{album}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{album-artist}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{genre}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{disc-number}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{disc-count}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{duration}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{year}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{original-date}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{track-number}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{tracks-count}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{isrc}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{track-id}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;</span><span class="si">{publisher}</span><span class="s2">&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{list-length}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{list-position}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{list-name}&quot;</span><span class="p">,</span>
+
+    <span class="s2">&quot;{output-ext}&quot;</span><span class="p">,</span>
+
+<span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">create_song_title</span><span class="p">(</span><span class="n">song_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">song_artists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create the song title.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - song_name: the name of the song</span>
+
+<span class="sd">    - song_artists: the list of artists of the song</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the song title</span>
+
+<span class="sd">    ### Notes</span>
+
+<span class="sd">    - Example: &quot;Artist1, Artist2 - Song Name&quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">joined_artists</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">song_artists</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">song_artists</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">joined_artists</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">song_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">return</span> <span class="n">song_name</span>
+
+<span class="k">def</span> <span class="nf">sanitize_string</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Sanitize the filename to be used in the file system.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - string: the string to sanitize</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the sanitized string</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="n">string</span>
+
+    <span class="c1"># this is windows specific (disallowed chars)</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">char</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">output</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">&quot;/?</span><span class="se">\\</span><span class="s2">*|&lt;&gt;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># double quotes (&quot;) and semi-colons (:) are also disallowed characters but we would</span>
+
+    <span class="c1"># like to retain their equivalents, so they aren&#39;t removed in the prior loop</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="k">def</span> <span class="nf">format_query</span><span class="p">(</span>
+
+    <span class="n">song</span><span class="p">:</span> <span class="n">Song</span><span class="p">,</span>
+
+    <span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+
+    <span class="n">santitize</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+
+    <span class="n">file_extension</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Replace template variables with the actual values.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - song: the song object</span>
+
+<span class="sd">    - template: the template string</span>
+
+<span class="sd">    - santitize: whether to sanitize the string</span>
+
+<span class="sd">    - file_extension: the file extension to use</span>
+
+<span class="sd">    - short: whether to use the short version of the template</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the formatted string</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="s2">&quot;{output-ext}&quot;</span> <span class="ow">in</span> <span class="n">template</span> <span class="ow">and</span> <span class="n">file_extension</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;file_extension is None, but template contains {output-ext}&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span>
+
+        <span class="nb">any</span><span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="n">template</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;{list-length}&quot;</span><span class="p">,</span> <span class="s2">&quot;{list-position}&quot;</span><span class="p">,</span> <span class="s2">&quot;{list-name}&quot;</span><span class="p">])</span>
+
+        <span class="ow">and</span> <span class="n">song</span><span class="o">.</span><span class="n">song_list</span> <span class="ow">is</span> <span class="kc">None</span>
+
+    <span class="p">):</span>
+
+        <span class="c1"># If the template contains {list-length} or {list-position} or {list-name},</span>
+
+        <span class="c1"># but the song_list is None, replace them with empty strings</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;{list-length}&quot;</span><span class="p">,</span> <span class="s2">&quot;{list-position}&quot;</span><span class="p">,</span> <span class="s2">&quot;{list-name}&quot;</span><span class="p">]:</span>
+
+            <span class="n">template</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="n">template</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;//&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+    <span class="c1"># If template has only {output-ext}, fix it</span>
+
+    <span class="c1"># This can happen if the template consits of only list values</span>
+
+    <span class="c1"># and song.song_list is None</span>
+
+    <span class="k">if</span> <span class="n">template</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;/.{output-ext}&quot;</span><span class="p">,</span> <span class="s2">&quot;.{output-ext}&quot;</span><span class="p">]:</span>
+
+        <span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{artists}</span><span class="s2"> - </span><span class="si">{title}</span><span class="s2">.{output-ext}&quot;</span>
+
+    <span class="n">artists</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">)</span>
+
+    <span class="c1"># the code below is valid, song_list is actually checked for None</span>
+
+    <span class="n">formats</span> <span class="o">=</span> <span class="p">{</span>
+
+        <span class="s2">&quot;</span><span class="si">{title}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{artists}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">short</span> <span class="ow">is</span> <span class="kc">True</span> <span class="k">else</span> <span class="n">artists</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{artist}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">artists</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+
+        <span class="s2">&quot;</span><span class="si">{album}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">album_name</span><span class="p">,</span>
+
+        <span class="s2">&quot;{album-artist}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">album_artist</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{genre}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">genres</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">genres</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+
+        <span class="s2">&quot;{disc-number}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">disc_number</span><span class="p">,</span>
+
+        <span class="s2">&quot;{disc-count}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">disc_count</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{duration}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">duration</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{year}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+
+        <span class="s2">&quot;{original-date}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
+
+        <span class="s2">&quot;{track-number}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">track_number</span><span class="p">,</span>
+
+        <span class="s2">&quot;{tracks-count}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">tracks_count</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{isrc}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">isrc</span><span class="p">,</span>
+
+        <span class="s2">&quot;{track-id}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">song_id</span><span class="p">,</span>
+
+        <span class="s2">&quot;</span><span class="si">{publisher}</span><span class="s2">&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">publisher</span><span class="p">,</span>
+
+        <span class="s2">&quot;{output-ext}&quot;</span><span class="p">:</span> <span class="n">file_extension</span><span class="p">,</span>
+
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">song</span><span class="o">.</span><span class="n">song_list</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span>
+
+        <span class="n">k</span> <span class="ow">in</span> <span class="n">template</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;{list-length}&quot;</span><span class="p">,</span> <span class="s2">&quot;{list-position}&quot;</span><span class="p">,</span> <span class="s2">&quot;{list-name}&quot;</span><span class="p">]</span>
+
+    <span class="p">):</span>
+
+        <span class="n">formats</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+
+            <span class="p">{</span>
+
+                <span class="s2">&quot;{list-name}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">song_list</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
+
+                <span class="s2">&quot;{list-position}&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">song_list</span><span class="o">.</span><span class="n">songs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">song</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span>
+
+                    <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">song_list</span><span class="o">.</span><span class="n">length</span><span class="p">))</span>
+
+                <span class="p">),</span>
+
+                <span class="s2">&quot;{list-length}&quot;</span><span class="p">:</span> <span class="n">song</span><span class="o">.</span><span class="n">song_list</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
+
+            <span class="p">}</span>
+
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">santitize</span><span class="p">:</span>
+
+        <span class="c1"># sanitize the values in formats dict</span>
+
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">formats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+                <span class="k">continue</span>
+
+            <span class="n">formats</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sanitize_string</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="c1"># Replace all the keys with the values</span>
+
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">formats</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+        <span class="n">template</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">template</span>
+
+<span class="k">def</span> <span class="nf">create_search_query</span><span class="p">(</span>
+
+    <span class="n">song</span><span class="p">:</span> <span class="n">Song</span><span class="p">,</span>
+
+    <span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+
+    <span class="n">santitize</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+
+    <span class="n">file_extension</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+    <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create the search query for the song.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - song: the song object</span>
+
+<span class="sd">    - template: the template string</span>
+
+<span class="sd">    - santitize: whether to sanitize the string</span>
+
+<span class="sd">    - file_extension: the file extension to use</span>
+
+<span class="sd">    - short: whether to use the short version of the template</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the formatted string</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># If template does not contain any of the keys,</span>
+
+    <span class="c1"># append {artist} - {title} at the beggining of the template</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">template</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">VARS</span><span class="p">):</span>
+
+        <span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{artist}</span><span class="s2"> - </span><span class="si">{title}</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">template</span>
+
+    <span class="k">return</span> <span class="n">format_query</span><span class="p">(</span><span class="n">song</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">santitize</span><span class="p">,</span> <span class="n">file_extension</span><span class="p">,</span> <span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_file_name</span><span class="p">(</span>
+
+    <span class="n">song</span><span class="p">:</span> <span class="n">Song</span><span class="p">,</span>
+
+    <span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+
+    <span class="n">file_extension</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+
+    <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Create the file name for the song, by replacing template variables with the actual values.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - song: the song object</span>
+
+<span class="sd">    - template: the template string</span>
+
+<span class="sd">    - file_extension: the file extension to use</span>
+
+<span class="sd">    - short: whether to use the short version of the template</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the formatted string as a Path object</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># If template does not contain any of the keys,</span>
+
+    <span class="c1"># append {artists} - {title}.{output-ext} to it</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">template</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">VARS</span><span class="p">):</span>
+
+        <span class="n">template</span> <span class="o">+=</span> <span class="s2">&quot;/</span><span class="si">{artists}</span><span class="s2"> - </span><span class="si">{title}</span><span class="s2">.{output-ext}&quot;</span>
+
+    <span class="c1"># If template ends with a slash. Does not have a file name with extension</span>
+
+    <span class="c1"># at the end of the template, append {artists} - {title}.{output-ext} to it</span>
+
+    <span class="k">if</span> <span class="n">template</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">template</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">template</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">):</span>
+
+        <span class="n">template</span> <span class="o">+=</span> <span class="s2">&quot;/</span><span class="si">{artists}</span><span class="s2"> - </span><span class="si">{title}</span><span class="s2">.{output-ext}&quot;</span>
+
+    <span class="c1"># If template does not end with {output-ext}, append it to the end of the template</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">template</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.{output-ext}&quot;</span><span class="p">):</span>
+
+        <span class="n">template</span> <span class="o">+=</span> <span class="s2">&quot;.{output-ext}&quot;</span>
+
+    <span class="n">formatted_string</span> <span class="o">=</span> <span class="n">format_query</span><span class="p">(</span>
+
+        <span class="n">song</span><span class="o">=</span><span class="n">song</span><span class="p">,</span>
+
+        <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">,</span>
+
+        <span class="n">santitize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+        <span class="n">file_extension</span><span class="o">=</span><span class="n">file_extension</span><span class="p">,</span>
+
+        <span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">,</span>
+
+    <span class="p">)</span>
+
+    <span class="c1"># Parse template as Path object</span>
+
+    <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">formatted_string</span><span class="p">)</span>
+
+    <span class="n">santitized_parts</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">parts</span><span class="p">:</span>
+
+        <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^\.*](.*)[^\.*$]&quot;</span><span class="p">,</span> <span class="n">part</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">match</span> <span class="ow">and</span> <span class="n">part</span> <span class="o">!=</span> <span class="s2">&quot;.spotdl&quot;</span><span class="p">:</span>
+
+            <span class="n">santitized_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="n">santitized_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+
+    <span class="c1"># Join the parts of the path</span>
+
+    <span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">*</span><span class="n">santitized_parts</span><span class="p">)</span>
+
+    <span class="c1"># Check if the file name length is greater than 255</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+
+        <span class="c1"># If the file name length is greater than 255,</span>
+
+        <span class="c1"># and we are already using the short version of the template,</span>
+
+        <span class="c1"># fallback to default template</span>
+
+        <span class="k">if</span> <span class="n">short</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+
+                <span class="s2">&quot;`short` is True, but the file name is too long. Using the default template.&quot;</span>
+
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">create_file_name</span><span class="p">(</span>
+
+                <span class="n">song</span><span class="o">=</span><span class="n">song</span><span class="p">,</span>
+
+                <span class="n">template</span><span class="o">=</span><span class="s2">&quot;/</span><span class="si">{artist}</span><span class="s2"> - </span><span class="si">{title}</span><span class="s2">.{output-ext}&quot;</span><span class="p">,</span>
+
+                <span class="n">file_extension</span><span class="o">=</span><span class="n">file_extension</span><span class="p">,</span>
+
+                <span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">,</span>
+
+            <span class="p">)</span>
+
+        <span class="c1"># This will probably never occur, but just in case</span>
+
+        <span class="k">if</span> <span class="n">short</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">template</span> <span class="o">==</span> <span class="s2">&quot;/</span><span class="si">{artist}</span><span class="s2"> - </span><span class="si">{title}</span><span class="s2">.{output-ext}&quot;</span><span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">RecursionError</span><span class="p">(</span>
+
+                <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">song</span><span class="o">.</span><span class="n">display_name</span><span class="si">}</span><span class="s1"> is too long to be shortened. File a bug report on GitHub&#39;</span>
+
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">create_file_name</span><span class="p">(</span>
+
+            <span class="n">song</span><span class="p">,</span>
+
+            <span class="n">template</span><span class="p">,</span>
+
+            <span class="n">file_extension</span><span class="p">,</span>
+
+            <span class="n">short</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">file</span>
+
+<span class="k">def</span> <span class="nf">parse_duration</span><span class="p">(</span><span class="n">duration</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Convert string value of time (duration: &quot;25:36:59&quot;) to a float value of seconds (92219.0)</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - duration: the string value of time</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the float value of seconds</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">duration</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="c1"># {(1, &quot;s&quot;), (60, &quot;m&quot;), (3600, &quot;h&quot;)}</span>
+
+        <span class="n">mapped_increments</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">3600</span><span class="p">],</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)))</span>
+
+        <span class="n">seconds</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">multiplier</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="k">for</span> <span class="n">multiplier</span><span class="p">,</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">mapped_increments</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+
+    <span class="c1"># This usually occurs when the wrong string is mistaken for the duration</span>
+
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+<span class="k">def</span> <span class="nf">to_ms</span><span class="p">(</span>
+
+    <span class="n">string</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">precision</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Convert a string to milliseconds.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - string: the string to convert</span>
+
+<span class="sd">    - precision: the number of decimals to round to</span>
+
+<span class="sd">    - kwargs: the keyword args to convert</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the milliseconds</span>
+
+<span class="sd">    ### Notes</span>
+
+<span class="sd">    - You can either pass a string,</span>
+
+<span class="sd">    - or a set of keyword args (&quot;hour&quot;, &quot;min&quot;, &quot;sec&quot;, &quot;ms&quot;) to convert.</span>
+
+<span class="sd">    - If &quot;precision&quot; is set, the result is rounded to the number of decimals given.</span>
+
+<span class="sd">    - From: https://gist.github.com/Hellowlol/5f8545e999259b4371c91ac223409209</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">string</span><span class="p">:</span>
+
+        <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+
+        <span class="n">sec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
+
+        <span class="n">milliseconds</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">11</span><span class="p">])</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hour&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">sec</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sec&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">milliseconds</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+
+        <span class="p">(</span><span class="n">hour</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">minute</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">sec</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="n">milliseconds</span>
+
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">precision</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">precision</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">restrict_filename</span><span class="p">(</span><span class="n">pathobj</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Sanitizes the filename part of a Path object. Returns modified object.</span>
+
+<span class="sd">    ### Arguments</span>
+
+<span class="sd">    - pathobj: the Path object to sanitize</span>
+
+<span class="sd">    ### Returns</span>
+
+<span class="sd">    - the modified Path object</span>
+
+<span class="sd">    ### Notes</span>
+
+<span class="sd">    - Based on the `sanitize_filename` function from yt-dlp</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">sanitize_filename</span><span class="p">(</span><span class="n">pathobj</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_-_&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span>
+
+    <span class="k">return</span> <span class="n">pathobj</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="variables">Variables</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">VARS</span>
+</code></pre></div>
+
+<h2 id="functions">Functions</h2>
+<h3 id="create_file_name">create_file_name</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">create_file_name</span><span class="p">(</span>
+    <span class="n">song</span><span class="p">:</span> <span class="n">spotdl</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">song</span><span class="o">.</span><span class="n">Song</span><span class="p">,</span>
+    <span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">file_extension</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
+</code></pre></div>
+
+<p>Create the file name for the song, by replacing template variables with the actual values.</p>
+<h3 id="arguments">Arguments</h3>
+<ul>
+<li>song: the song object</li>
+<li>template: the template string</li>
+<li>file_extension: the file extension to use</li>
+<li>short: whether to use the short version of the template</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<ul>
+<li>the formatted string as a Path object</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">create_file_name</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">song</span><span class="o">:</span><span class="w"> </span><span class="n">Song</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">template</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">file_extension</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">short</span><span class="o">:</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">False</span><span class="p">,</span><span class="w"></span>
+
+<span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">Path</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2"></span>
+
+<span class="s2">    Create the file name for the song, by replacing template variables with the actual values.</span>
+
+<span class="s2">    ### Arguments</span>
+
+<span class="s2">    - song: the song object</span>
+
+<span class="s2">    - template: the template string</span>
+
+<span class="s2">    - file_extension: the file extension to use</span>
+
+<span class="s2">    - short: whether to use the short version of the template</span>
+
+<span class="s2">    ### Returns</span>
+
+<span class="s2">    - the formatted string as a Path object</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># If template does not contain any of the keys,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># append {artists} - {title}.{output-ext} to it</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">any</span><span class="p">(</span><span class="k">key</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">VARS</span><span class="p">)</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;/{artists} - {title}.{output-ext}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># If template ends with a slash. Does not have a file name with extension</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># at the end of the template, append {artists} - {title}.{output-ext} to it</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;/{artists} - {title}.{output-ext}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># If template does not end with {output-ext}, append it to the end of the template</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.{output-ext}&quot;</span><span class="p">)</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot;.{output-ext}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">formatted_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">format_query</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">song</span><span class="o">=</span><span class="n">song</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">santitize</span><span class="o">=</span><span class="no">True</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">file_extension</span><span class="o">=</span><span class="n">file_extension</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Parse template as Path object</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Path</span><span class="p">(</span><span class="n">formatted_string</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">santitized_parts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">[]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="n">parts</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">match</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">re</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">r</span><span class="s2">&quot;[^</span><span class="err">\</span><span class="s2">.*](.*)[^</span><span class="err">\</span><span class="s2">.*$]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">part</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s2">&quot;.spotdl&quot;</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">santitized_parts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="k">match</span><span class="p">.</span><span class="k">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">else</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">santitized_parts</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">part</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Join the parts of the path</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Path</span><span class="p">(</span><span class="o">*</span><span class="n">santitized_parts</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1"># Check if the file name length is greater than 255</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="k">file</span><span class="p">.</span><span class="k">name</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">255</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1"># If the file name length is greater than 255,</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1"># and we are already using the short version of the template,</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1"># fallback to default template</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="no">True</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">warnings</span><span class="p">.</span><span class="n">warn</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="s2">&quot;`short` is True, but the file name is too long. Using the default template.&quot;</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">create_file_name</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">song</span><span class="o">=</span><span class="n">song</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">template</span><span class="o">=</span><span class="s2">&quot;/{artist} - {title}.{output-ext}&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">file_extension</span><span class="o">=</span><span class="n">file_extension</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1"># This will probably never occur, but just in case</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="no">True</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;/{artist} - {title}.{output-ext}&quot;</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">raise</span><span class="w"> </span><span class="n">RecursionError</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                </span><span class="n">f</span><span class="s1">&#39;&quot;{song.display_name} is too long to be shortened. File a bug report on GitHub&#39;</span><span class="w"></span>
+
+<span class="w">            </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">create_file_name</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">song</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">template</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">file_extension</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">short</span><span class="o">=</span><span class="no">True</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">file</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="create_search_query">create_search_query</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">create_search_query</span><span class="p">(</span>
+    <span class="n">song</span><span class="p">:</span> <span class="n">spotdl</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">song</span><span class="o">.</span><span class="n">Song</span><span class="p">,</span>
+    <span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">santitize</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">file_extension</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+<p>Create the search query for the song.</p>
+<h3 id="arguments_1">Arguments</h3>
+<ul>
+<li>song: the song object</li>
+<li>template: the template string</li>
+<li>santitize: whether to sanitize the string</li>
+<li>file_extension: the file extension to use</li>
+<li>short: whether to use the short version of the template</li>
+</ul>
+<h3 id="returns_1">Returns</h3>
+<ul>
+<li>the formatted string</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">create_search_query</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">song</span><span class="p">:</span><span class="w"> </span><span class="n">Song</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">template</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">santitize</span><span class="p">:</span><span class="w"> </span><span class="n">bool</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">file_extension</span><span class="p">:</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">short</span><span class="p">:</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="p">,</span><span class="w"></span>
+
+<span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nf">str</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Create the search query for the song.</span>
+
+<span class="ss">    ### Arguments</span>
+
+<span class="ss">    - song: the song object</span>
+
+<span class="ss">    - template: the template string</span>
+
+<span class="ss">    - santitize: whether to sanitize the string</span>
+
+<span class="ss">    - file_extension: the file extension to use</span>
+
+<span class="ss">    - short: whether to use the short version of the template</span>
+
+<span class="ss">    ### Returns</span>
+
+<span class="ss">    - the formatted string</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">contain</span><span class="w"> </span><span class="ow">any</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keys</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">append</span><span class="w"> </span><span class="err">{</span><span class="n">artist</span><span class="err">}</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="err">{</span><span class="n">title</span><span class="err">}</span><span class="w"> </span><span class="k">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">beggining</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">template</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="ow">any</span><span class="p">(</span><span class="k">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">VARS</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;{artist} - {title}&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">template</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">format_query</span><span class="p">(</span><span class="n">song</span><span class="p">,</span><span class="w"> </span><span class="n">template</span><span class="p">,</span><span class="w"> </span><span class="n">santitize</span><span class="p">,</span><span class="w"> </span><span class="n">file_extension</span><span class="p">,</span><span class="w"> </span><span class="n">short</span><span class="o">=</span><span class="n">short</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="create_song_title">create_song_title</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">create_song_title</span><span class="p">(</span>
+    <span class="n">song_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">song_artists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+<p>Create the song title.</p>
+<h3 id="arguments_2">Arguments</h3>
+<ul>
+<li>song_name: the name of the song</li>
+<li>song_artists: the list of artists of the song</li>
+</ul>
+<h3 id="returns_2">Returns</h3>
+<ul>
+<li>the song title</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Example: "Artist1, Artist2 - Song Name"</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">create_song_title</span><span class="p">(</span><span class="nl">song_name</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">,</span><span class="w"> </span><span class="nl">song_artists</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nf">str</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Create the song title.</span>
+
+<span class="ss">    ### Arguments</span>
+
+<span class="ss">    - song_name: the name of the song</span>
+
+<span class="ss">    - song_artists: the list of artists of the song</span>
+
+<span class="ss">    ### Returns</span>
+
+<span class="ss">    - the song title</span>
+
+<span class="ss">    ### Notes</span>
+
+<span class="ss">    - Example: &quot;</span><span class="n">Artist1</span><span class="p">,</span><span class="w"> </span><span class="n">Artist2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Song</span><span class="w"> </span><span class="n">Name</span><span class="ss">&quot;</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">joined_artists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;, &quot;</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">song_artists</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">song_artists</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{joined_artists} - {song_name}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">song_name</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="format_query">format_query</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">format_query</span><span class="p">(</span>
+    <span class="n">song</span><span class="p">:</span> <span class="n">spotdl</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">song</span><span class="o">.</span><span class="n">Song</span><span class="p">,</span>
+    <span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">santitize</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">file_extension</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+<p>Replace template variables with the actual values.</p>
+<h3 id="arguments_3">Arguments</h3>
+<ul>
+<li>song: the song object</li>
+<li>template: the template string</li>
+<li>santitize: whether to sanitize the string</li>
+<li>file_extension: the file extension to use</li>
+<li>short: whether to use the short version of the template</li>
+</ul>
+<h3 id="returns_3">Returns</h3>
+<ul>
+<li>the formatted string</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">format_query</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">song</span><span class="p">:</span><span class="w"> </span><span class="n">Song</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">template</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">santitize</span><span class="p">:</span><span class="w"> </span><span class="n">bool</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">file_extension</span><span class="p">:</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">short</span><span class="p">:</span><span class="w"> </span><span class="n">bool</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">False</span><span class="p">,</span><span class="w"></span>
+
+<span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nf">str</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Replace template variables with the actual values.</span>
+
+<span class="ss">    ### Arguments</span>
+
+<span class="ss">    - song: the song object</span>
+
+<span class="ss">    - template: the template string</span>
+
+<span class="ss">    - santitize: whether to sanitize the string</span>
+
+<span class="ss">    - file_extension: the file extension to use</span>
+
+<span class="ss">    - short: whether to use the short version of the template</span>
+
+<span class="ss">    ### Returns</span>
+
+<span class="ss">    - the formatted string</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="ss">&quot;{output-ext}&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">file_extension</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">raise</span><span class="w"> </span><span class="n">ValueError</span><span class="p">(</span><span class="ss">&quot;file_extension is None, but template contains {output-ext}&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="ow">any</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;{list-length}&quot;, &quot;{list-position}&quot;, &quot;{list-name}&quot;</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="ow">and</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="k">contains</span><span class="w"> </span><span class="err">{</span><span class="n">list</span><span class="o">-</span><span class="n">length</span><span class="err">}</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">{</span><span class="n">list</span><span class="o">-</span><span class="k">position</span><span class="err">}</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="err">{</span><span class="n">list</span><span class="o">-</span><span class="n">name</span><span class="err">}</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">song_list</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"> </span><span class="nf">replace</span><span class="w"> </span><span class="n">them</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">strings</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;{list-length}&quot;, &quot;{list-position}&quot;, &quot;{list-name}&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="n">r</span><span class="ss">&quot;//&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="ss">&quot;/&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="k">If</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="err">{</span><span class="k">output</span><span class="o">-</span><span class="n">ext</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="n">fix</span><span class="w"> </span><span class="n">it</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">happen</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="n">consits</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="k">values</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;/.{output-ext}&quot;, &quot;.{output-ext}&quot;</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;{artists} - {title}.{output-ext}&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">artists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;, &quot;</span><span class="p">.</span><span class="k">join</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">valid</span><span class="p">,</span><span class="w"> </span><span class="n">song_list</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">actually</span><span class="w"> </span><span class="n">checked</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">None</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">formats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{title}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{artists}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">short</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">True</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">artists</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{artist}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">artists</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{album}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">album_name</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{album-artist}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">album_artist</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{genre}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">genres</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nf">len</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">genres</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="ss">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{disc-number}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">disc_number</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{disc-count}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">disc_count</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{duration}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">duration</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{year}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="nf">year</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{original-date}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="nc">date</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{track-number}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">track_number</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{tracks-count}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">tracks_count</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{isrc}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">isrc</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{track-id}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">song_id</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{publisher}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">publisher</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">        </span><span class="ss">&quot;{output-ext}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">file_extension</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="ow">any</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;{list-length}&quot;, &quot;{list-position}&quot;, &quot;{list-name}&quot;</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">formats</span><span class="p">.</span><span class="k">update</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">{</span><span class="w"></span>
+
+<span class="w">                </span><span class="ss">&quot;{list-name}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nl">type</span><span class="p">:</span><span class="w"> </span><span class="k">ignore</span><span class="w"></span>
+
+<span class="w">                </span><span class="ss">&quot;{list-position}&quot;</span><span class="err">:</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="p">.</span><span class="n">songs</span><span class="p">.</span><span class="k">index</span><span class="p">(</span><span class="n">song</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">).</span><span class="n">zfill</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">                    </span><span class="nf">len</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="p">.</span><span class="n">length</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">                </span><span class="p">),</span><span class="w"></span>
+
+<span class="w">                </span><span class="ss">&quot;{list-length}&quot;</span><span class="err">:</span><span class="w"> </span><span class="n">song</span><span class="p">.</span><span class="n">song_list</span><span class="p">.</span><span class="n">length</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nl">santitize</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">sanitize</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">formats</span><span class="w"> </span><span class="n">dict</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">formats</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">                </span><span class="k">continue</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">formats</span><span class="o">[</span><span class="n">key</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sanitize_string</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="k">value</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nf">Replace</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">values</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">formats</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="k">key</span><span class="p">,</span><span class="w"> </span><span class="nf">str</span><span class="p">(</span><span class="k">value</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">template</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="parse_duration">parse_duration</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_duration</span><span class="p">(</span>
+    <span class="n">duration</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+</code></pre></div>
+
+<p>Convert string value of time (duration: "25:36:59") to a float value of seconds (92219.0)</p>
+<h3 id="arguments_4">Arguments</h3>
+<ul>
+<li>duration: the string value of time</li>
+</ul>
+<h3 id="returns_4">Returns</h3>
+<ul>
+<li>the float value of seconds</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">parse_duration</span><span class="p">(</span><span class="nl">duration</span><span class="p">:</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">float</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Convert string value of time (duration: &quot;</span><span class="mi">25</span><span class="err">:</span><span class="mi">36</span><span class="err">:</span><span class="mi">59</span><span class="ss">&quot;) to a float value of seconds (92219.0)</span>
+
+<span class="ss">    ### Arguments</span>
+
+<span class="ss">    - duration: the string value of time</span>
+
+<span class="ss">    ### Returns</span>
+
+<span class="ss">    - the float value of seconds</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">duration</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">try</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="err">{</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;s&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;m&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3600</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;h&quot;</span><span class="p">)</span><span class="err">}</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">mapped_increments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zip</span><span class="p">(</span><span class="o">[</span><span class="n">1, 60, 3600</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">reversed</span><span class="p">(</span><span class="n">duration</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="ss">&quot;:&quot;</span><span class="p">)))</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">multiplier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="nc">time</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">multiplier</span><span class="p">,</span><span class="w"> </span><span class="nc">time</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">mapped_increments</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nc">float</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">wrong</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">mistaken</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">duration</span><span class="w"></span>
+
+<span class="w">    </span><span class="ow">except</span><span class="w"> </span><span class="p">(</span><span class="n">ValueError</span><span class="p">,</span><span class="w"> </span><span class="n">TypeError</span><span class="p">,</span><span class="w"> </span><span class="n">AttributeError</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="restrict_filename">restrict_filename</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">restrict_filename</span><span class="p">(</span>
+    <span class="n">pathobj</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
+</code></pre></div>
+
+<p>Sanitizes the filename part of a Path object. Returns modified object.</p>
+<h3 id="arguments_5">Arguments</h3>
+<ul>
+<li>pathobj: the Path object to sanitize</li>
+</ul>
+<h3 id="returns_5">Returns</h3>
+<ul>
+<li>the modified Path object</li>
+</ul>
+<h3 id="notes_1">Notes</h3>
+<ul>
+<li>Based on the <code>sanitize_filename</code> function from yt-dlp</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">restrict_filename</span><span class="p">(</span><span class="n">pathobj</span><span class="o">:</span><span class="w"> </span><span class="k">Path</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">Path</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2"></span>
+
+<span class="s2">    Sanitizes the filename part of a Path object. Returns modified object.</span>
+
+<span class="s2">    ### Arguments</span>
+
+<span class="s2">    - pathobj: the Path object to sanitize</span>
+
+<span class="s2">    ### Returns</span>
+
+<span class="s2">    - the modified Path object</span>
+
+<span class="s2">    ### Notes</span>
+
+<span class="s2">    - Based on the `sanitize_filename` function from yt-dlp</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sanitize_filename</span><span class="p">(</span><span class="n">pathobj</span><span class="p">.</span><span class="k">name</span><span class="p">,</span><span class="w"> </span><span class="no">True</span><span class="p">,</span><span class="w"> </span><span class="no">False</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">result</span><span class="p">.</span><span class="k">replace</span><span class="p">(</span><span class="s2">&quot;_-_&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">result</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;_&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">pathobj</span><span class="p">.</span><span class="n">with_name</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="sanitize_string">sanitize_string</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sanitize_string</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+</code></pre></div>
+
+<p>Sanitize the filename to be used in the file system.</p>
+<h3 id="arguments_6">Arguments</h3>
+<ul>
+<li>string: the string to sanitize</li>
+</ul>
+<h3 id="returns_6">Returns</h3>
+<ul>
+<li>the sanitized string</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">sanitize_string</span><span class="p">(</span><span class="n">string</span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">str</span><span class="o">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="s">&quot;&quot;&quot;</span>
+
+<span class="s">    Sanitize the filename to be used in the file system.</span>
+
+<span class="s">    ### Arguments</span>
+
+<span class="s">    - string: the string to sanitize</span>
+
+<span class="s">    ### Returns</span>
+
+<span class="s">    - the sanitized string</span>
+
+<span class="s">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kr">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">windows</span><span class="w"> </span><span class="n">specific</span><span class="w"> </span><span class="p">(</span><span class="n">disallowed</span><span class="w"> </span><span class="n">chars</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="kr">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">char</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="kr">output</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="kr">not</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="s">&quot;/?\\*|&lt;&gt;&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">quotes</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;) and semi-colons (:) are also disallowed characters but we would</span>
+
+<span class="s">    # like to retain their equivalents, so they aren&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">prior</span><span class="w"> </span><span class="nf">loop</span><span class="w"></span>
+
+<span class="w">    </span><span class="kr">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">output</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;, &quot;&#39;&quot;</span><span class="p">).</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="kr">output</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="to_ms">to_ms</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">to_ms</span><span class="p">(</span>
+    <span class="n">string</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">precision</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
+</code></pre></div>
+
+<p>Convert a string to milliseconds.</p>
+<h3 id="arguments_7">Arguments</h3>
+<ul>
+<li>string: the string to convert</li>
+<li>precision: the number of decimals to round to</li>
+<li>kwargs: the keyword args to convert</li>
+</ul>
+<h3 id="returns_7">Returns</h3>
+<ul>
+<li>the milliseconds</li>
+</ul>
+<h3 id="notes_2">Notes</h3>
+<ul>
+<li>You can either pass a string,</li>
+<li>or a set of keyword args ("hour", "min", "sec", "ms") to convert.</li>
+<li>If "precision" is set, the result is rounded to the number of decimals given.</li>
+<li>From: https://gist.github.com/Hellowlol/5f8545e999259b4371c91ac223409209</li>
+</ul>
+<details class="example">
+<summary>View Source</summary>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">to_ms</span><span class="p">(</span><span class="w"></span>
+
+<span class="w">    </span><span class="nl">string</span><span class="p">:</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">str</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"> </span><span class="k">precision</span><span class="err">:</span><span class="w"> </span><span class="n">Optional</span><span class="o">[</span><span class="n">int</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">None</span><span class="p">,</span><span class="w"> </span><span class="o">**</span><span class="n">kwargs</span><span class="w"></span>
+
+<span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">float</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Convert a string to milliseconds.</span>
+
+<span class="ss">    ### Arguments</span>
+
+<span class="ss">    - string: the string to convert</span>
+
+<span class="ss">    - precision: the number of decimals to round to</span>
+
+<span class="ss">    - kwargs: the keyword args to convert</span>
+
+<span class="ss">    ### Returns</span>
+
+<span class="ss">    - the milliseconds</span>
+
+<span class="ss">    ### Notes</span>
+
+<span class="ss">    - You can either pass a string,</span>
+
+<span class="ss">    - or a set of keyword args (&quot;</span><span class="k">hour</span><span class="ss">&quot;, &quot;</span><span class="nf">min</span><span class="ss">&quot;, &quot;</span><span class="n">sec</span><span class="ss">&quot;, &quot;</span><span class="n">ms</span><span class="ss">&quot;) to convert.</span>
+
+<span class="ss">    - If &quot;</span><span class="k">precision</span><span class="ss">&quot; is set, the result is rounded to the number of decimals given.</span>
+
+<span class="ss">    - From: https://gist.github.com/Hellowlol/5f8545e999259b4371c91ac223409209</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nl">string</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">string</span><span class="o">[</span><span class="n">0:2</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">minute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">string</span><span class="o">[</span><span class="n">3:5</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">string</span><span class="o">[</span><span class="n">6:8</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">milliseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">string</span><span class="o">[</span><span class="n">10:11</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">kwargs</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;hour&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">minute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">kwargs</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;min&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">kwargs</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;sec&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">milliseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">int</span><span class="p">(</span><span class="n">kwargs</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="ss">&quot;ms&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+
+<span class="w">        </span><span class="p">(</span><span class="k">hour</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">minute</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">sec</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">milliseconds</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">precision</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">isinstance</span><span class="p">(</span><span class="k">precision</span><span class="p">,</span><span class="w"> </span><span class="nc">int</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="k">result</span><span class="p">,</span><span class="w"> </span><span class="k">precision</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">result</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ffmpeg/" title="Ffmpeg" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Ffmpeg
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../github/" title="Github" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Github
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>
