@@ -22,7 +22,7 @@ from spotdl.utils.formatter import create_file_name, restrict_filename
 from spotdl.providers.audio.base import AudioProvider
 from spotdl.providers.lyrics import Genius, MusixMatch, AzLyrics
 from spotdl.providers.lyrics.base import LyricsProvider
-from spotdl.providers.audio import YouTube, YouTubeMusic
+from spotdl.providers.audio import YouTube, YouTubeMusic, SoundCloud
 from spotdl.download.progress_handler import NAME_TO_LEVEL, ProgressHandler
 from spotdl.utils.config import get_errors_path
 
@@ -30,6 +30,7 @@ from spotdl.utils.config import get_errors_path
 AUDIO_PROVIDERS: Dict[str, Type[AudioProvider]] = {
     "youtube": YouTube,
     "youtube-music": YouTubeMusic,
+    "soundcloud": SoundCloud
 }
 
 LYRICS_PROVIDERS: Dict[str, Type[LyricsProvider]] = {
