@@ -374,25 +374,11 @@ def convert_sync(
     if output_format == "opus" and file_format != "webm":
         arguments.extend(["-c:a", "libopus"])
     else:
-<<<<<<< HEAD
         if output_format in ["m4a", "opus"] and not (bitrate or ffmpeg_args):
             # Copy the audio stream to the output file
             arguments.extend(["-vn", "-c:a", "copy"])
         else:
             arguments.extend(FFMPEG_FORMATS[output_format])
-=======
-        # If additional arguments are specified and output format is m4a
-        # Convert the m4a instead of moving the stream
-        if (variable_bitrate or constant_bitrate or ffmpeg_args) and output_format in ["m4a", "opus"]:
-            arguments.extend(FFMPEG_FORMATS[output_format])
-        else:
-            # Copy the audio stream to the output file
-            arguments.extend(["-vn", "-c:a", "copy"])
-
-    # Add variable bitrate if specified
-    if variable_bitrate:
-        arguments.extend(["-q:a", variable_bitrate])
->>>>>>> 2652331 (changed conversion process for m4a and opus format)
 
     # Add constant bitrate if specified
     if bitrate:
