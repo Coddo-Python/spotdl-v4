@@ -114,12 +114,19 @@ class SoundCloud(AudioProvider):
             if result.kind != "track":
                 continue
 
+            album = self.client.get_track_albums(result.id)
+
+            try:
+                album_name = next(album).title
+            except StopIteration:
+                album_name = None
+
             simplified_results.append(
                 {
                     "name": result.title,
                     "type": "track",  # Should be result.kind but it will always be track
                     "link": result.permalink_url,
-                    "album": next(self.client.get_track_albums(result.id), ""),
+                    "album": album_name,
                     "duration": result.full_duration,
                     "artist": result.user.username,
                     # Soundcloud doesn't give a list of artists, so we have to assume all the
