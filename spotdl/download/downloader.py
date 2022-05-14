@@ -5,6 +5,7 @@ Downloader module, this is where all the downloading pre/post processing happens
 import json
 import datetime
 import asyncio
+import shutil
 import sys
 import concurrent.futures
 import traceback
@@ -16,7 +17,7 @@ from yt_dlp.postprocessor.sponsorblock import SponsorBlockPP
 from yt_dlp.postprocessor.modify_chapters import ModifyChaptersPP
 
 from spotdl.types import Song
-from spotdl.utils.ffmpeg import FFmpegError, convert_sync
+from spotdl.utils.ffmpeg import FFmpegError, convert_sync, get_ffmpeg_path
 from spotdl.utils.metadata import embed_metadata, MetadataError
 from spotdl.utils.formatter import create_file_name, restrict_filename
 from spotdl.providers.audio.base import AudioProvider
@@ -132,6 +133,11 @@ class Downloader:
 
             audio_providers_classes.append(new_audio_provider)
 
+        if len(audio_providers_classes) == 0:
+            raise DownloaderError(
+                "No audio providers specified. Please specify at least one."
+            )
+
         for provider in lyrics_providers:
             new_lyrics_provider = LYRICS_PROVIDERS.get(provider)
             if new_lyrics_provider is None:
@@ -158,6 +164,15 @@ class Downloader:
         self.thread_executor = concurrent.futures.ThreadPoolExecutor(
             max_workers=threads
         )
+
+        # If ffmpeg is the default value and it's not installed
+        # try to use the spotdl's ffmpeg
+        if ffmpeg == "ffmpeg" and shutil.which("ffmpeg") is None:
+            ffmpeg_exec = get_ffmpeg_path()
+            if ffmpeg_exec is None:
+                raise DownloaderError("ffmpeg is not installed")
+
+            ffmpeg = str(ffmpeg_exec.absolute())
 
         self.output = output
         self.output_format = output_format
@@ -279,10 +294,6 @@ class Downloader:
         for audio_provider in self.audio_providers:
             url = audio_provider.search(song)
             if url:
-                self.progress_handler.debug(
-                    f"Found {song.display_name} by {song.artist} on "
-                    f"{audio_provider.name}"
-                )
                 return url, audio_provider
 
             self.progress_handler.debug(
@@ -420,8 +431,12 @@ class Downloader:
                     / f"ffmpeg_error_{datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}.txt"
                 )
 
+                error_message = ""
+                for key, value in result.items():
+                    error_message += f"### {key}:\n{str(value).strip()}\n\n"
+
                 with open(file_name, "w", encoding="utf-8") as error_path:
-                    json.dump(result, error_path, ensure_ascii=False, indent=4)
+                    error_path.write(error_message)
 
                 # Remove the file that failed to convert
                 output_file.unlink()

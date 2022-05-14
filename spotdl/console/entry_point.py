@@ -9,11 +9,11 @@ import logging
 import cProfile
 import pstats
 
-from spotdl.console.save import save
-from spotdl.console.sync import sync
-from spotdl.download import Downloader
-from spotdl.console.preload import preload
 from spotdl.console.download import download
+from spotdl.console.preload import preload
+from spotdl.console.sync import sync
+from spotdl.console.save import save
+from spotdl.download import Downloader
 from spotdl.utils.config import DEFAULT_CONFIG, ConfigError, get_config
 from spotdl.utils.ffmpeg import FFmpegError, download_ffmpeg, is_ffmpeg_installed
 from spotdl.utils.config import get_config_file
@@ -21,6 +21,14 @@ from spotdl.utils.github import check_for_updates
 from spotdl.utils.arguments import parse_arguments
 from spotdl.utils.spotify import SpotifyClient, SpotifyError
 from spotdl.download.downloader import DownloaderError
+
+
+OPEARTIONS = {
+    "download": download,
+    "preload": preload,
+    "sync": sync,
+    "save": save,
+}
 
 
 def entry_point():
@@ -77,18 +85,21 @@ def entry_point():
     arguments = parse_arguments()
 
     # Get the config file
+    # It will automatically load if the `load_config` is set to True
+    # in the config file
     config = {}
-    if arguments.config:
-        # Load the config file
-        with open(get_config_file(), "r", encoding="utf-8") as config_file:
-            config = json.load(config_file)
+    if arguments.config or (
+        get_config_file().exists() and get_config().get("load_config")
+    ):
+        config = get_config()
 
     # Create settings dict
     # Settings from config file will override the ones from the command line
     settings = {}
     for key in DEFAULT_CONFIG:
         if config.get(key) is None:
-            settings[key] = arguments.__dict__[key]
+            # If the key is not in the arguments dict, use the default value
+            settings[key] = arguments.__dict__.get(key) or DEFAULT_CONFIG[key]
         else:
             settings[key] = config[key]
 
@@ -110,13 +121,19 @@ def entry_point():
     )
 
     # If the application is frozen start web ui
-    if getattr(sys, "frozen", False) and len(sys.argv) == 1:
+    # or if the operation is `web`
+    if (
+        getattr(sys, "frozen", False)
+        and len(sys.argv) == 1
+        or arguments.operation == "web"
+    ):
         from spotdl.console.web import (  # pylint: disable=C0415,C0410,W0707,W0611
             web,
         )
 
-        # Don't log too much when running web ui
-        settings["log_level"] = "CRITICAL"
+        # Don't log too much when running web ui & default logging argument
+        if arguments.__dict__.get("log_level") is None:
+            settings["log_level"] = "CRITICAL"
 
         # Start web ui
         web(settings)
@@ -128,24 +145,6 @@ def entry_point():
         ".spotdl"
     ):
         raise DownloaderError("Save file has to end with .spotdl")
-
-    # Don't log too much when running web ui
-    if arguments.operation == "web":
-        settings["log_level"] = "CRITICAL"
-
-        try:
-            from spotdl.console.web import (  # pylint: disable=C0415,C0410,W0707,W0611
-                web,
-            )
-        except ModuleNotFoundError as exception:
-            raise Exception(
-                "To use the web interface, you need to install web package with"
-                "`pip install spotdl[web]`"
-            ) from exception
-
-        web(settings)
-
-        return None
 
     if arguments.query and "saved" in arguments.query and not settings["user_auth"]:
         raise SpotifyError("You must be logged in to use the saved query.")
@@ -179,29 +178,14 @@ def entry_point():
     signal.signal(signal.SIGINT, graceful_exit)
     signal.signal(signal.SIGTERM, graceful_exit)
 
-    if arguments.operation == "download":
-        download(arguments.query, downloader=downloader, m3u_file=settings["m3u"])
-    elif arguments.operation == "preload":
-        preload(
-            query=arguments.query,
-            save_path=settings["save_file"],
-            downloader=downloader,
-            m3u_file=settings["m3u"],
-        )
-    elif arguments.operation == "sync":
-        sync(
-            arguments.query,
-            downloader=downloader,
-            m3u_file=settings["m3u"],
-        )
-    elif arguments.operation == "save":
-        # Save the songs to a file
-        save(
-            query=arguments.query,
-            save_path=settings["save_file"],
-            downloader=downloader,
-            m3u_file=settings["m3u"],
-        )
+    # Pick the operation to perform
+    # based on the name and run it!
+    OPEARTIONS[arguments.operation](
+        query=arguments.query,
+        save_path=settings["save_file"],
+        downloader=downloader,
+        m3u_file=settings["m3u"],
+    )
 
     downloader.progress_handler.close()
 

@@ -50,6 +50,8 @@ DUR_REGEX = re.compile(
 TIME_REGEX = re.compile(
     r"out_time=(?P<hour>\d{2}):(?P<min>\d{2}):(?P<sec>\d{2})\.(?P<ms>\d{2})"
 )
+VERSION_REGEX = re.compile(r"ffmpeg version \w?(\d+\.)?(\d+)")
+YEAR_REGEX = re.compile(r"Copyright \(c\) \d\d\d\d\-\d\d\d\d")
 
 
 class FFmpegError(Exception):
@@ -70,14 +72,20 @@ def is_ffmpeg_installed(ffmpeg: str = "ffmpeg") -> bool:
     """
 
     if ffmpeg == "ffmpeg":
-        # use shutil.which to find ffmpeg in system path
-        return shutil.which("ffmpeg") is not None
+        global_ffmpeg = shutil.which("ffmpeg")
+        if global_ffmpeg is None:
+            ffmpeg_path = get_ffmpeg_path()
+        else:
+            ffmpeg_path = Path(global_ffmpeg)
+    else:
+        ffmpeg_path = Path(ffmpeg)
 
-    abs_path = str(Path(ffmpeg).absolute())
+    if ffmpeg_path is None:
+        return False
 
     # else check if path to ffmpeg is valid
     # and if ffmpeg has the correct access rights
-    return os.path.isfile(abs_path) and os.access(abs_path, os.X_OK)
+    return ffmpeg_path.exists() and os.access(ffmpeg_path, os.X_OK)
 
 
 def get_ffmpeg_path() -> Optional[Path]:
@@ -128,8 +136,8 @@ def get_ffmpeg_version(ffmpeg: str = "ffmpeg") -> Tuple[Optional[float], Optiona
         output = "".join(process.communicate())
 
     # Search for version and build year in output
-    version_result = re.search(r"ffmpeg version \w?(\d+\.)?(\d+)", output)
-    year_result = re.search(r"Copyright \(c\) \d\d\d\d\-\d\d\d\d", output)
+    version_result = VERSION_REGEX.search(output)
+    year_result = YEAR_REGEX.search(output)
 
     build_year = None
     version = None

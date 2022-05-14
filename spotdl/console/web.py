@@ -85,8 +85,8 @@ class SettingsModel(BaseModel):
 
     log_level: Optional[str]
     cache_path: Optional[str]
-    audio_provider: Optional[str]
-    lyrics_provider: Optional[str]
+    audio_providers: Optional[List[str]]
+    lyrics_providers: Optional[List[str]]
     ffmpeg: Optional[str]
     variable_bitrate: Optional[int]
     constant_bitrate: Optional[int]
@@ -184,8 +184,7 @@ class WSProgressHandler:
         """
         update_message = {
             "song": progress_handler_instance.song.json,
-            "progress": progress_handler_instance.parent.overall_progress
-            / progress_handler_instance.parent.overall_total,
+            "progress": progress_handler_instance.progress,
             "message": message,
         }
         asyncio.run(self.send_update(json.dumps(update_message)))
@@ -460,7 +459,7 @@ def get_settings() -> SettingsModel:
 @app.server.post("/api/settings/update")
 def change_settings(settings: SettingsModel) -> bool:
     """
-    Change downloader settings by reinitializing the downloader.
+    Change downloader settings by re-initializing the downloader.
 
     ### Arguments
     - settings: The settings to change.
@@ -471,15 +470,13 @@ def change_settings(settings: SettingsModel) -> bool:
 
     settings_dict = settings.dict()
 
-    print("changing settings from ", app.settings, "\nto\n", settings_dict)
-
     # Create shallow copy of settings
     settings_cpy = app.settings.copy()
 
     # Update settings with new settings that are not None
-    settings_cpy.update({k: v for k, v in settings.dict().items() if v is not None})
+    settings_cpy.update({k: v for k, v in settings_dict.items() if v is not None})
 
-    print("applying settings", settings_cpy)
+    logging.debug("Applying settings: %s", {settings_cpy})
 
     # Re-initialize downloader
     app.downloader = Downloader(
