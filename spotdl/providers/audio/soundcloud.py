@@ -66,9 +66,6 @@ class SoundCloud(AudioProvider):
             if len(song_results) > 0:
                 songs = {song_results[0]["link"]: 100}
 
-        # song type results are always more accurate than video type,
-        # so if we get score of 80 or above
-        # we are almost 100% sure that this is the correct link
         if len(songs) != 0:
             # get the result with highest score
             best_result = max(songs, key=lambda k: songs[k])
@@ -124,7 +121,8 @@ class SoundCloud(AudioProvider):
             simplified_results.append(
                 {
                     "name": result.title,
-                    "type": "track",  # Should be result.kind but it will always be track
+                    "type": "track",
+                    # Should be result.kind, but it will always be track, might change in the future
                     "link": result.permalink_url,
                     "album": album_name,
                     "duration": result.full_duration,
@@ -188,7 +186,7 @@ class SoundCloud(AudioProvider):
                         return links_with_match_value
                     artist_match_number += artist_match
 
-                # If we didn't find any artist match, we fallback to channel name match. Since
+                # If we didn't find any artist match, we fallback to artist name match. Since
                 # anyone can post songs on soundcloud, we keep the maximum level to trigger the
                 # if block very low
                 if artist_match_number <= 30:
